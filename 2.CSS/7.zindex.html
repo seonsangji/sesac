@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {    
+            display: flex;
+            /* 블럭 컴포넌트를 옆으로 배치할 때 (incline같은 속성) */
+            /* justify-content : space-around; */
+            /* justify-content: space-between; */
+            justify-content: space-around;
+            }
+        div {
+            width: 200px;
+            height: 100px;
+        }
+        .box1{
+                background-color:orange;
+                z-index: 4;
+                /* 상대적인 우선순위, 숫자가 클수록 위로 올라간다 */
+        }
+         .box2{
+                background-color: red;
+                z-index: 3
+        }
+         .box3{
+                background-color: blue;
+                z-index: 2
+                    }
+        .box4{
+                background-color: yellow;
+                z-index: 1
+                    }
+    </style>
+
+
+
+</head>
+<body>
+   
+    <div class="container">
+        <div class="box1">ORANGE</div>
+        <div class="box2">RED</div>
+        <div class="box3">BLUE</div>
+        <div class="box4">YELLOW</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.menu p {
+    display:inline-block; width: 100px; border: 1px solid red; text-align: center;
+}
+
+#cat{
+    float: left; margin: 20px; border: 1px dashed red
+}
+
+#scene{
+    float: right; padding: 20px;border: 1px dashed red
+}
