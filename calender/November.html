@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <style>
+        html,
+        body {
+            height: "100%";
+            margin: 0;
+            background-color: salmon;
+            font-family: "Huninn";
+
+        }
+
+        h1 {
+            display: flex;
+            font-size: 50px;
+            letter-spacing: 1px;
+            justify-content: center;
+            color: rgb(130, 93, 5)
+        }
+
+
+        .month-nav {
+            position: fixed;
+            right: 50px;
+            top: 30px;
+            display: flex;
+            gap: 5px;
+            z-index: 1000;
+
+        }
+
+        .month-nav a {
+            text-decoration: none;
+            color: rgb(130, 93, 5);
+            font-size: 40px;
+            }
+
+        
+        
+        
+        .c {
+            border-radius: 5%;
+            opacity: 0.9;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            
+        }
+
+        .calendar_wrapper 
+        { display: flex;
+        justify-content: center;}
+
+        #calendar {
+            width: 100%;
+            margin-top: 50px;
+            font-size: 15px;
+            max-width: 800px;
+            border-collapse: separate;
+            border-spacing:0;
+            border-radius: 8px;
+            overflow: hidden
+             
+        }
+
+        #calendar th {
+            background-color: rgb(255, 96, 78);
+            border: 1px solid rgb(255, 96, 78);
+            
+        }
+
+        #calendar td {
+            background-color: rgb(239, 222, 112);
+            border: 1px solid salmon
+        }
+
+        #calendar th,
+        #calendar td {
+            text-align: center;
+            padding: 10px;
+            width: 14%
+        }
+
+        #calendar th:nth-child(1),
+        #calendar th:nth-child(3),
+        #calendar th:nth-child(5),
+        #calendar th:nth-child(7),
+        #calendar td:nth-child(1),
+        #calendar td:nth-child(3),
+        #calendar td:nth-child(5),
+        #calendar td:nth-child(7) {
+            color: rgb(130, 93, 5)
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="month_wrapper">
+
+
+    <h1>August</h1>
+    </div>
+    
+    <div class="month-nav">
+
+        <a href="July.html">◀</a>
+
+        <a href="./September.html">▶</a>
+        <!-- <button class="backward">▶</button> -->
+
+    </div>
+
+    <img class="복숭아" src="August.jpg" alt="복숭아" >
+
+<div class="calendar_wrapper">
+    <table id="calendar">
+        <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wen</th>
+            <th>Thr</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+
+</html>

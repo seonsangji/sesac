@@ -1,0 +1,24 @@
+.container { display:flex; flex-wrap: wrap;
+    widtd: 400px;
+}
+
+
+.container > div {
+    widtd: 50%;
+    height: 100px;
+    box-sizing: border-box;
+    border: 10px solid black;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+
+    
+
+}
+
+.box1{background-color: orange}
+.box2{background-color: orange}
+.box3{background-color: orange}
+.box4{background-color: orange}
+.box5{background-color: orange}
+.box6{background-color: orange}

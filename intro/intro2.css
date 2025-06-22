@@ -1,0 +1,24 @@
+/* intro.css 내용 예시 */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      widtd: 400px; /* 너비 조절 가능 */
+    }
+
+    .container > div {
+      widtd: 50%;              /* 2열 만들기 */
+      height: 100px;
+      box-sizing: border-box;
+      border: 10px solid black;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+    }
+
+    .box1 { background-color: orange; }
+    .box2 { background-color: red; color: white; }
+    .box3 { background-color: skyblue; }
+    .box4 { background-color: yellow; }
+    .box5 { background-color: lightblue; }
+    .box6 { background-color: lightgreen; }
+  
