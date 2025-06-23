@@ -12,52 +12,46 @@
         body {
             height: "100%";
             margin: 0;
-            background-color: salmon;
+            background-color: rgb(255, 192, 75);
             font-family: "Huninn";
 
         }
 
         h1 {
-            display: flex;
             font-size: 50px;
             letter-spacing: 1px;
-            justify-content: center;
-            color: rgb(130, 93, 5)
+            color: rgb(130, 93, 5);
+            margin-left: 100px
         }
 
 
-        .month-nav {
-            position: fixed;
-            right: 50px;
-            top: 30px;
-            display: flex;
-            gap: 5px;
-            z-index: 1000;
 
-        }
-
-        .month-nav a {
+        h1>a {
             text-decoration: none;
             color: rgb(130, 93, 5);
             font-size: 40px;
-            }
-
-        
-        
-        
-        .peach {
-            border-radius: 5%;
-            opacity: 0.9;
-            max-width: 1000px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            
         }
 
-        .calendar_wrapper 
-        { display: flex;
-        justify-content: center;}
+
+        .calendar_wrapper {
+            width: 700px;
+            height: 990px;
+            margin-left: 100px
+        }
+
+
+        img {
+            width: 700px; height: 500px
+        }
+
+        #calendar {
+            width: 700px;
+            margin-top: 50px;
+            font-size: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+        }
 
         #calendar {
             width: 100%;
@@ -72,14 +66,14 @@
         }
 
         #calendar th {
-            background-color: rgb(255, 96, 78);
-            border: 1px solid rgb(255, 96, 78);
+            background-color: rgb(255, 165, 31);
+            border: 1px solid rgb(255, 165, 31);
             
         }
 
         #calendar td {
-            background-color: rgb(239, 222, 112);
-            border: 1px solid salmon
+            background-color: rgb(253, 107, 75);
+            border: 1px solid rgb(255, 192, 75)
         }
 
         #calendar th,
@@ -104,24 +98,24 @@
 
 <body>
 
-    <div class="month_wrapper">
+    <h1>
 
-
-    <h1>October</h1>
-    </div>
-    
-    <div class="month-nav">
+        October
 
         <a href="./September.html">◀</a>
 
         <a href="./November.html">▶</a>
         <!-- <button class="backward">▶</button> -->
+    </h1>
 
-    </div>
 
-    <img class="october" src="october.jpg" alt="석류" >
 
-<div class="calendar_wrapper">
+    <div class="calendar_wrapper">
+
+        <img src="october.jpg" alt="peach">
+
+        <br>
+
     <table id="calendar">
         <tr>
             <th>Sun</th>
@@ -138,47 +132,47 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
             <td>1</td>
-            <td>2</td>
         </tr>
         <tr>
+            <td>2</td>
             <td>3</td>
             <td>4</td>
             <td>5</td>
             <td>6</td>
             <td>7</td>
             <td>8</td>
-            <td>9</td>
         </tr>
         <tr>
+            <td>9</td>
             <td>10</td>
             <td>11</td>
             <td>12</td>
             <td>13</td>
             <td>14</td>
             <td>15</td>
-            <td>16</td>
         </tr>
         <tr>
+            <td>16</td>
             <td>17</td>
             <td>18</td>
             <td>19</td>
             <td>20</td>
             <td>21</td>
             <td>22</td>
-            <td>23</td>
         </tr>
         <tr>
+            <td>23</td>
             <td>24</td>
             <td>25</td>
             <td>26</td>
             <td>27</td>
             <td>28</td>
             <td>29</td>
-            <td>30</td>
         </tr>
         <tr>
-            <td>31</td>
+            <td>30</td>
             <td></td>
             <td></td>
             <td></td>

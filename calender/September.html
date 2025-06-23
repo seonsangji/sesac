@@ -18,63 +18,41 @@
         }
 
         h1 {
-            display: flex;
             font-size: 50px;
             letter-spacing: 1px;
-            justify-content: center;
-            color: rgb(130, 93, 5)
+            color: rgb(130, 93, 5);
+            margin-left: 100px
         }
 
 
-        .month-nav {
-            position: fixed;
-            right: 50px;
-            top: 30px;
-            display: flex;
-            gap: 5px;
-            z-index: 1000;
 
-        }
-
-        .month-nav a {
+        h1>a {
             text-decoration: none;
             color: rgb(130, 93, 5);
             font-size: 40px;
-            }
-
-        
-        
-        
-        .apple {
-            border-radius: 5%;
-            opacity: 0.9;
-            max-width: 1000px;
-            height: auto;
-            display: flex;
-            
-            margin: 0 auto;
-            
         }
 
-        .image-container {
-            width : 1000px;
-            height : 750px;
-            margin: auto;
-            overflow: hidden;
-            border-radius: 10px;
-            
+
+        .calendar_wrapper {
+            width: 700px;
+            height: 990px;
+            margin-left: 100px
         }
 
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block
+
+        img {
+            width: 700px;
+            height: 500px
         }
-        
-        .calendar_wrapper 
-        { display: flex;
-        justify-content: center;}
+
+        #calendar {
+            width: 700px;
+            margin-top: 50px;
+            font-size: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+        }
 
         #calendar {
             width: 100%;
@@ -82,16 +60,15 @@
             font-size: 15px;
             max-width: 800px;
             border-collapse: separate;
-            border-spacing:0;
+            border-spacing: 0;
             border-radius: 8px;
             overflow: hidden
-             
         }
 
         #calendar th {
             background-color: rgb(64, 128, 200);
             border: 1px solid rgb(64, 128, 200);
-            
+
         }
 
         #calendar td {
@@ -121,83 +98,82 @@
 
 <body>
 
-    <div class="month_wrapper">
 
+    <h1>
 
-    <h1>September</h1>
-    </div>
-    
-    <div class="month-nav">
+        September
 
         <a href="./August.html">◀</a>
 
         <a href="./October.html">▶</a>
         <!-- <button class="backward">▶</button> -->
+    </h1>
 
+
+
+    <div class="calendar_wrapper">
+
+        <img src="September.jpg" alt="감">
+
+        <br>
+        <table id="calendar">
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wen</th>
+                <th>Thr</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
     </div>
-    <div class="image-container">
-    <img class="apple" src="September.jpg" alt="사과" >
-    </div>
-
-<div class="calendar_wrapper">
-    <table id="calendar">
-        <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wen</th>
-            <th>Thr</th>
-            <th>Fri</th>
-            <th>Sat</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-        </tr>
-        <tr>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-        </tr>
-        <tr>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-    </table>
-</div>
 
 </body>
 

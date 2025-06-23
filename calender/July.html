@@ -12,52 +12,46 @@
         body {
             height: "100%";
             margin: 0;
-            background-color: #e86cb2;
+            background-color:rgb(89, 139, 200);
             font-family: "Huninn";
 
         }
 
         h1 {
-            display: flex;
             font-size: 50px;
             letter-spacing: 1px;
-            justify-content: center;
-            color: rgb(130, 93, 5)
+            color: rgb(130, 93, 5);
+            margin-left: 100px
         }
 
 
-        .month-nav {
-            position: fixed;
-            right: 50px;
-            top: 30px;
-            display: flex;
-            gap: 5px;
-            z-index: 1000;
 
-        }
-
-        .month-nav a {
+        h1>a {
             text-decoration: none;
             color: rgb(130, 93, 5);
             font-size: 40px;
-            }
-
-        
-        
-        
-        .grape {
-            border-radius: 5%;
-            opacity: 0.9;
-            max-width: 1000px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            
         }
 
-        .calendar_wrapper 
-        { display: flex;
-        justify-content: center;}
+
+        .calendar_wrapper {
+            width: 700px;
+            height: 990px;
+            margin-left: 100px
+        }
+
+
+        img {
+            width: 700px; height: 500px
+        }
+
+        #calendar {
+            width: 700px;
+            margin-top: 50px;
+            font-size: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+        }
 
         #calendar {
             width: 100%;
@@ -65,21 +59,20 @@
             font-size: 15px;
             max-width: 800px;
             border-collapse: separate;
-            border-spacing:0;
+            border-spacing: 0;
             border-radius: 8px;
             overflow: hidden
-             
         }
 
         #calendar th {
-            background-color: rgb(169, 100, 190);
-            border: 1px solid rgb(169, 100, 190);
-            
+            background-color: rgb(239, 93, 93);
+            border: 1px solid rgb(239, 93, 93);
+
         }
 
         #calendar td {
-            background-color: #e78dd8;
-            border: 1px solid #e86cb2
+            background-color: #e7908d;
+            border: 1px solid rgb(89, 139, 200)
         }
 
         #calendar th,
@@ -104,81 +97,82 @@
 
 <body>
 
-    <div class="month_wrapper">
-    <h1>July</h1>
-    </div>
-    
-    <div class="month-nav">
+    <h1>
+
+        July
+
         <a href="./June.html">◀</a>
-
-
 
         <a href="./August.html">▶</a>
         <!-- <button class="backward">▶</button> -->
+    </h1>
 
+
+
+    <div class="calendar_wrapper">
+
+        <img src="July.jpg" alt="July">
+
+        <br>
+
+        <table id="calendar">
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wen</th>
+                <th>Thr</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
     </div>
-
-    <img class="grape" src="July.png" alt="포도" >
-
-<div class="calendar_wrapper">
-    <table id="calendar">
-        <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wen</th>
-            <th>Thr</th>
-            <th>Fri</th>
-            <th>Sat</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-        </tr>
-        <tr>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-        </tr>
-        <tr>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>
-            <td>31</td>
-            <td></td>
-            <td></td>
-        </tr>
-        
-    </table>
-</div>
 
 </body>
 
