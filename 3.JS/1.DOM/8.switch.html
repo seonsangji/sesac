@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="fruitSelector" onchange="fruitDisplay()">
+        <option value="apple">사과</option>
+        <option value="banana">바나나</option>
+        <option value="orange">오렌지</option>
+        <option value="pineapple">파인애플</option>
+
+
+    </select>
+    <div id = "fruitResult">#</div>
+    <script>
+        function fruitDisplay() {
+            let fruit = document.getElementById("fruitSelector").value;
+            let result = document.getElementById("fruitResult");
+                // if ( fruit ==='apple') {
+                //     result.innerText = "이것은 사과입니다.";
+                // } else if ....
+
+            switch (fruit) {
+                case "apple": result.innerText = "이것은 사과입니다." break;
+                case "banana": result.innerText = "이것은 ㅂㄴㄴ입니다." break;
+                case "orange": result.innerText = "이것은 ㅇㄹㅈ니다." break;
+                case "pineapple": result.innerHTML = "<b>이것은 ㅍㅇㅇㅍ입니다.</b>" break; 
+
+            // switch.case는 언제나 if.else로 대체 가능하지만 가독성 높이려고 사용한다, case가 끝났을 때 break가 없으면, 아래로 쭉 흘러가 모두 처리한다
+
+            default: result.innerText = "밥줘!";
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

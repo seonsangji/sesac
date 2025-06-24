@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+
+<body>
+    <button onclick="changeColor()">배경색 변경하기</button>
+    <button onclick="changeColor2()">배경3색</button>
+    <script>
+        console.log("hello");
+
+        function changeColor() {
+            if (document.body.style.backgroundColor != 'red')
+        {document.body.style.backgroundColor = 'white';}
+        else {document.body.style.backgroundColor = 'red'; }
+
+        }
+
+        
+        function changeColor2() {
+            const colors = ["red", "green", "blue"] ;
+            document.body.style.backgroundColor='red'
+
+            
+            if ( document.body.style.backgroundColor = 'red') 
+                {document.body.style.backgroundColor = 'green';}
+            else if (document.body.style.backgroundColor='green') 
+                {document.body.style.backgroundColor = 'blue';}
+            
+            else { document.body.style.backgroundColor = 'red';}
+        }
+        
+
+        // currentIndex ===colors.length
+    </script>
+</body>
+</html>

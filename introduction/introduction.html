@@ -14,12 +14,12 @@
         }
 
 
-        .container {;
-            width: 100vw;
-            height: 100vh;
+        .container {
+            ;
+            width: 70w;
+            height: 70vh;
             /* 전체 화면 기준 */
-            margin-top: 20px;
-            border: 25px solid rgb(6, 6, 71);
+            border: 1px solid rgb(6, 6, 71);
             border-radius: 20%;
             display: flex;
             flex-direction: column;
@@ -45,7 +45,7 @@
         .box2,
         .box3,
         .box4 {
-            width: 30%;
+            width: 300px;
             height: 60%;
             border: 10px solid rgb(6, 6, 71);
             border-radius: 20%;
@@ -54,20 +54,29 @@
             align-items: center;
             background-color: rgb(6, 6, 71);
             color: gainsboro;
-            font-size: xxx-large
+            font-size: 100px
+        }
+
+        .box1_list,
+        .box2_list,
+        .box3_list,
+        .box4_list {
+            font-size: 20px;
         }
 
         .me {
-            display: flex;
+            display: column;            
             width: 200px;
-            height: 150px;
-            border: 5px solid white;
-            border-radius: 20%;
-            display: flex;
+            height: 200px;
             justify-content: center;
             align-items: center;
             color: gainsboro;
-            font-size: xxx-large;
+            font-size: 130px;
+            margin-left: 50px
+        }
+        .name {
+            font-size: 30px;
+            margin-left: 25px
         }
     </style>
 
@@ -81,19 +90,52 @@
         <div class="section1">
             <div class="box1">
                 <i class="fa-solid fa-burger"></i>
+                <div class="box1_list">
+                    <ul>
+                        <li>햄버거</li>
+                        <li>만두</li>
+                        <li>아이스크림</li>
+                    </ul>
+                </div>
             </div>
+
             <div class="box2">
+                <div class="box2_list">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
                 <i class="fa-solid fa-music"></i>
+
             </div>
         </div>
 
-        <div class="me">김태희</div>
+        <div class="me">
+            <i class="fa-regular fa-face-smile"></i>
+            <br>
+            <div class="name">
+                김태희
+            </div>
+        </div>
+
 
         <div class="section2">
             <div class="box3">
                 <i class="fa-solid fa-mug-hot"></i>
+            
+            <div class="box1_list">
+                <ul>
+                    <li>차 마시기</li>
+                    <li>생강 먹기</li>
+                </ul>
             </div>
+        </div>
             <div class="box4">
+                <div class="box1_list">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
                 <i class="fa-solid fa-calendar"></i>
             </div>
         </div>

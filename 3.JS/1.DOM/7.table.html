@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid black
+        }
+    </style>
+<body>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+    </table>
+
+
+
+    <button onclick="changeAllCellColor()">색 색상 모두 변경하기</button>
+    <button>색 색상 짝수 변경하기</button>
+    <button>색 색상 홀수 변경하기</button>
+
+
+    <script>
+        console.log("hello");
+
+        function changeAllCellColor() {
+            let cells = document.getElementsByTagName("td");
+            for ( let i = 0; i <9 ; i ++)
+            // 하드코딩 최소화 --> for ( let i = 0; i< cells.length; i ++)
+        {cells[i].style.backgroundColor = 'lightblue';
+            // modern 한 for 루프 스타일은 ! --> for ( let cell of cells) { cell.style.backgroundColor = 'lightblue';}
+            // 또 참고.. cells.forEach (cell =>{}) array불가능
+            // 
+        }
+        }
+    </script>
+    
+</body>
+</html>
