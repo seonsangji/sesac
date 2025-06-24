@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid black
+        }
+    </style>
+<body>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+    </table>
+
+
+
+    <button onclick ="changeOddCellColor()">색 색상 홀수 변경하기</button>
+
+
+    <script>
+        console.log("hello");
+
+        const cells = document.getElementsByTagName('td');
+
+        function changeOddCellColor() {
+            for (let i=0, i< cells.length,i ++) {
+                if (i % 2 == 0 ) { cells [i].style.backgroundColor = 'lightgreen'}
+            }
+        }
+        function changeOddCellColor2 () {
+            // cells 가 array 가 아니라 HTMLcollection 이라, array로 변환해줘야 forEach 사용 가능
+
+            Array.from(cells).forEach ( (c,i) = > {
+                if ( i % 2 === 1 ) {
+                    cells [i]. style.backgroundColor = 'lightgreen';
+                }
+            })
+        }
+
+
+        function changeOddCellColor3() {
+            for (let i=0; i< cells.length,i +=2) {
+                if (i % 2 == 0 ) { cells [i].style.backgroundColor = 'lightgreen'}
+            }
+        }
+    </script>
+    
+</body>
+</html>
