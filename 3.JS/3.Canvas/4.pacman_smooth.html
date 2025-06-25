@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,44 +27,53 @@
         function drawPacman() {
             context.fillStyle = 'yellow';
             context.beginPath();
-            context.moveTo(x, y);
-            context.arc(300, 100, 20, 0, Math.PI * 2);
+            context.moveTo(x, y);            
             const startAngle = 0.2 * Math.PI;
             const endAngle = 1.8 * Math.PI;
             context.arc(x, y, 30, startAngle, endAngle);
             context.fill();
             context.closePath();
-            let direction = 1;
         }
 
-
         function animate() {
-            context.clearRect(0, 0, canvas.width, canvas.height); // 전체 지우기
+            context.clearRect(0,0,canvas.width,canvas.height);
 
             drawPacman();
 
             requestAnimationFrame(animate);
+    
         }
-
-
-        // x,y 이동시키기 
-        // 1. 키 누를때마다 해당 방향으로 x,y자표를 10만큼 이동한다 
-        // 2. 키를 누를때마다 해당 방향으로 연속적으로 이동한다.
-
-        document.addEventListener('keydown', handleKeyDown);
-
-        function handleKeyDown(event) {
-            y = y + 10
-            x = x + 20;
         
+        const keys = {
+            ArrowUp: false, 
+            ArrowDown: false, 
+            ArrowLeft: false,
+            ArrowRight: false }
+
+        document.addEventListener('keydown',function(event) {
+            keys [event.key] = true;
+        })
+        document.addEventListener('keyup',function(event) {
+            keys [event.key] = false
+        })
+        
+        let speed = 10
+
+        document.addEventListener('keydown', function(event) {
+        if ( keys ["ArrowUp"] ) { y = y - speed}
+        if ( keys ["ArrowDown"] ) { y = y + speed}
+        if ( keys ["ArrowLeft"] ) { x = x - speed}
+        if ( keys ["ArrowRight"] ) { x = x + speed};
+
+        requestAnimationFrame(animate);
+        
+    })
+
+
 
         animate();
 
-        }
-
-
     </script>
-
+    
 </body>
-
 </html>
