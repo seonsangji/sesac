@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dragItem
+         {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #dropzone1,
+        #dropzone2 {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed grey;
+            background-color: grey;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #dropzone1 {
+            position: absolute;
+            top: 200px
+        }
+
+        #dropzone2 {
+            position : absolute;
+            top: 450px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="dragItem" draggable="true">드래그하시오</div>
+    <br> 
+    <div id="dropzone1" class="zone">여기에 떨구시오</div>
+    <div id="dropzone2" class="zone">아니,여기에 떨구시오</div>
+
+    <script>
+        const dragItem = document.getElementById('dragItem');
+        const dropZones = document.querySelectorAll(".zone");
+
+        dragItem.addEventListener('dragstart', function() {console.log('드래그 시작됨'); 
+
+        })
+
+        dropZones.forEach( item => {
+           item.addEventListener('dragover', function(event) {
+            event.preventDefault();
+            console.log('여기 뭐가 올라옴')
+           }
+        )
+        })
+
+        
+
+        dropZones.forEach( item => item.addEventListener('drop', function (event) {
+            console.log('여기에 놨음');
+            item.appendChild(dragItem);
+        })
+    )
+    </script>
+        
+    </script>
+</body>
+</html>
