@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+
+    <script>
+        // 1.박스를 그려봅시다
+        const canvas = document.getElementById('myCanvas');
+        const context = canvas.getContext('2d');
+
+        context.fillStyle = "#FF0000"
+        // 빨간색
+        context.fillRect(50, 50, 100, 80);
+
+
+        context.strokeStyle = 'blue'
+        // 테두리
+        context.strokeRect(50, 100, 100, 80);
+        context.clearRect(80, 80, 40, 60);
+        // 일부 영역 지우기
+
+
+
+        // 2. 라인을 그려봅시다
+        context.strokeStyle = '#00FF00'
+        context.lineWidth = 2;
+        context.beginPath();
+        context.moveTo(200, 50);
+        context.lineTo(300, 130);
+        context.stroke();
+        context.closePath();
+
+        // 3. 원 그리기
+        context.fillStyle = '#00FF00'
+        context.beginPath();
+        context.arc(350, 50, 30, 0, 2 * Math.PI);
+        context.arc(180, 50, 30, 0, Math.PI);
+        context.fill();
+        context.closePath();
+
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>안녕하세요 여러분</h1>
+    <img src="#">
+    
+    <script>
+        // DOM로딩이 끝났다는 것은 모든 CSS와 외부이미지 로딩 등이 끝난 것을 보장하지는 않는다!
+        // HTML에서 DOM 로딩이 완성된 다음에 실행하시오 :
+        document.addEventListener('DOMContentLoaded', call_this_function_later() );
+
+        function call_this_function_later() {
+        const h1 = document.getElementsByTagName('h1')[0];
+        h1.style.color = "red";
+        }
+
+        // function () { } 
+        // () => {}
+
+
+        // DOM, CSS적용, 이미지로딩도 다 로딩, JS실행들도 다 ~ 모든게 끝났을 때 실행된다
+        window.onload = () => {
+            conlose.log('여기는 모든 로딩이 다 끝났을때.')
+        }
+    </script>
+</body>
+</html>

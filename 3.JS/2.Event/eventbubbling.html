@@ -1,0 +1,67 @@
+
+
+
+<!-- 계층 구조에 맞네 내가 자식을 클릭하면 부모로 이벤트가 전달 되는 것 -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grandparent {
+            padding : 50px;
+            background-color: lightblue;
+        }
+        #parent {
+            padding: 50px;
+            background-color: rgb(127, 127, 239);
+
+        }
+        #child {
+            padding : 50px;
+            background-color: rgb(75, 75, 237);
+        }
+    </style>
+</head>
+<body>
+    <div id="grandparent">
+        조상
+        <div id="parent">
+            부모
+            <div id="child">
+                자식
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const grandparent = document.getElementById('grandparent');
+        const parent = document.getElementById('parent');
+        const child = document.getElementById('child');
+
+        grandparent.addEventListener('click', function () {
+            alert ('grandparent clikced')
+        })
+        parent.addEventListener('click', function () {
+            alert ('parent clikced');
+            event.stopPropagation();
+        })
+        child.addEventListener('click', function (event) {
+            alert ('child clikced');
+            event.stopPropagation();
+        })
+
+
+
+
+        </script>
+</body>
+
+</html>

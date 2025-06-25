@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dragItem1,
+        #dragItem2,
+        #dragItem3
+         {
+            width: 100px;
+            height: 100px;
+        
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        #dragItem1 {background-color: yellow;}
+        #dragItem2 {background-color: orange;}
+        #dragItem3 {background-color: green;}
+
+        #dropzone {
+             width: 200px;
+            height: 200px;
+            border: 2px dashed grey;
+            background-color: grey;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="dragItem1" class="box" draggable="true">드래그하시오</div>
+    <br>
+    <div id="dragItem2" class="box" draggable="true">드래그하시오</div>
+    <br>    
+    <div id="dragItem3" class="box" draggable="true">드래그하시오</div>
+    <br>    
+    <div id="dropzone" >여기에 떨구시오</div>
+
+    <script>
+        const items = document.querySelectorAll('.box');
+        const dragItem = Array.from(items);
+        const dropZone = document.getElementById('dropzone');
+
+        dragItem.forEach(item => {
+            item.addEventListener('dragstart', function(event) {
+                console.log('드래그시작');
+                const id = event.dataTransfer.setData('text/plain',event.target.id)
+            })
+        })
+
+        dropZone.addEventListener('dragover', function (event) {
+            console.log('여기에 무언가 올라옴');
+            event.preventDefault();
+        })
+
+        dropZone.addEventListener('drop', function (event) {
+            console.log('여기에 놨음');
+            const id = event.dataTransfer.getData('text/plain');
+            // 선택된 박스의 데이타를 가져올 수 있다! (여기서는 id인거고..)
+            const draggedbox = document.getElementById(id);
+            dropZone.appendChild(draggedbox);
+        }
+
+        )
+        
+    </script>
+</body>
+</html>
