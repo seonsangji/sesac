@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <h1>구구단 출력</h1>
     <input id="danInput" type="number" placeholder="단 입력 (예:2)">
@@ -16,23 +14,22 @@
 
 
     <script>
+    
+    function printGugudan () {
+        const dan = document.getElementById("danInput").value;
+        const resultDiv = document.getElementById("result");
 
-        function printGugudan() {
-            const dan = document.getElementById("danInput").value;
-            const resultDiv = document.getElementById("result");
+        let output = `<H3>--- ${dan}단 ---</H3>`
 
-            let output = `<H3>--- ${dan}단 ---</H3>`
-
-
-            for (let i = 1; i <= 9; i++) {
-                output += (`<br> ${dan} x ${i} = ${dan * i}`);
+        
+                for ( let i=1; i<=9; i++ ) {
+                output += ( `<br> ${dan} x ${i} = ${dan*i}`);
             }
-            resultDiv.innerHTML = output;
+                resultDiv.innerHTML = output;
         }
-
+    
 
 
     </script>
 </body>
-
 </html>
