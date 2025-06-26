@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+
+    <script>
+
+        const canvas = document.getElementById('myCanvas');
+        const context = canvas.getContext('2d');
+
+
+        let x = 100;
+        let y = 100;
+        let startAngle = 0.2 * Math.PI;
+        let endAngle = 1.8 * Math.PI; 
+        anticlockwise: false
+
+        function drawPacman( x,y,startAngle,endAngle,anticlockwise) {
+            context.fillStyle = 'yellow';
+            context.beginPath();
+            context.moveTo(x, y);                    
+            context.arc(x, y, 30, startAngle, endAngle,anticlockwise);
+            context.fill();
+            context.closePath();
+        }
+
+        
+
+
+        function animate() {
+            context.clearRect(0,0,canvas.width,canvas.height);
+
+            drawPacman( x,y,startAngle,endAngle)
+
+            requestAnimationFrame(animate);
+    
+        }
+        
+        const keys = {
+            ArrowUp: false, 
+            ArrowDown: false, 
+            ArrowLeft: false,
+            ArrowRight: false }
+
+        document.addEventListener('keydown',function(event) {
+            keys [event.key] = true;
+        })
+
+        document.addEventListener('keyup',function(event) {
+            keys [event.key] = false;
+        })
+        
+        let speed = 10
+
+        document.addEventListener('keydown', function(event) {
+        if ( keys ["ArrowUp"] === true ) { 
+            console.log("얼굴 위로");
+            y -= speed;
+             startAngle = 0.7 * Math.PI;
+             endAngle = 0.3 * Math.PI;
+        }
+        if ( keys ["ArrowDown"] ) { y = y + speed;
+             startAngle = 0.7 * Math.PI;
+             endAngle = 0.3 * Math.PI;
+             
+        } 
+        if ( keys ["ArrowLeft"] ) { x = x - speed;
+             startAngle = 0.2 * Math.PI;
+             endAngle = 1.8 * Math.PI;
+             anticlockwise= true
+        }
+        if ( keys ["ArrowRight"] ) { 
+            x += speed;
+             startAngle = 0.2 * Math.PI;
+             endAngle = 1.8 * Math.PI;
+             anticlockwise = false
+        };
+
+        requestAnimationFrame(animate);
+        
+    })
+
+
+
+        animate();
+
+    </script>
+    
+</body>
+</html>
