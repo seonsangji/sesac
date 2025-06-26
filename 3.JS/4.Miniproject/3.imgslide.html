@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        html, body {
+            background-color: black;
+        }
+        #screen {
+            width: 640px;
+            height: 360px;
+            border: 1px solid lightgrey;
+            position: relative;
+        }
+
+        #next,
+        #previous
+         {
+            z-index: 1000;
+            width: 80px;
+            height:60px;
+            background-color: rgba (0,0,0,0);
+            margin-top: 150px;
+        }
+
+        #next {
+            position: absolute;
+            right: 0px;       
+        }
+        .box {
+            width: 160px;
+            height: 90px;
+            background-color: lightgrey;
+            border: none;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .button_box {  
+            margin-left: 80px;
+            margin-top: 20px;          
+            width : 640px;
+            height: 100px
+        }
+        h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Most Delicious Food In the WORLD</h1>
+    <div id="screen">
+        <button id="previous" ></button>
+        <button id="next"></button>
+    </div>
+    <br>
+    <div class="button_box">
+        <button id="first_div" class="box"></button>
+        <button id="second_div" class="box"></button>
+        <button id="third_div" class="box"></button>
+    </div>
+    <script>
+
+        let div1 = document.getElementById('first_div');
+        let img1 = document.createElement('img');
+        img1.src ="./img/패티앤베지스.jpg"
+        img1.style.width = '160px';
+        img1.style.height = '90px';
+        div1.appendChild(img1);
+
+
+        let div2 = document.getElementById('second_div');
+        let img2 = document.createElement('img');
+        img2.src ="./img/양키스버거.jpg"
+        img2.style.width = '160px';
+        img2.style.height = '90px';
+        div2.appendChild(img2);
+
+
+        let div3 = document.getElementById('third_div');
+        let img3 = document.createElement('img');
+        img3.src ="./img/bas.jpg"
+        img3.style.width = '160px';
+        img3.style.height = '90px';
+        div3.appendChild(img3);
+
+        div1.addEventListener('click', display_image1);
+        div2.addEventListener('click', display_image2);
+        div3.addEventListener('click', display_image3);
+            
+
+        function display_image1 () {
+            let screen = document.getElementById('screen');
+            let previousImages = screen.querySelectorAll('img');
+            previousImages.forEach(img => screen.removeChild(img));
+
+            let img1 = document.createElement('img');
+            img1.src ="./img/패티앤베지스.jpg"
+            img1.style.width = '640px';
+            img1.style.height = '360px';
+            
+            
+            screen.appendChild(img1)
+            console.log("바스버거띠용")
+        }
+
+        function display_image2 () {
+            let screen = document.getElementById('screen');
+            let previousImages = screen.querySelectorAll('img');
+            previousImages.forEach(img => screen.removeChild(img));
+
+            let img2 = document.createElement('img');
+            img2.src ="./img/양키스버거.jpg"
+            img2.style.width = '640px';
+            img2.style.height = '360px';
+            
+            screen.appendChild(img2)
+            console.log("바스버거띠용")
+        }
+
+        function display_image3 () {
+            let screen = document.getElementById('screen');
+            let previousImages = screen.querySelectorAll('img');
+            previousImages.forEach(img => screen.removeChild(img));
+
+            let img3 = document.createElement('img');
+            img3.src ="./img/bas.jpg"
+            img3.style.width = '640px';
+            img3.style.height = '360px';
+            
+            screen.appendChild(img3)
+            console.log("바스버거띠용")
+        }
+
+        
+
+        
+        
+    </script>
+
+    
+</body>
+</html>
