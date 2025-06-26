@@ -52,6 +52,7 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            cursor: pointer;
         }
 
         .button_box {  
@@ -83,24 +84,62 @@
         let previousButton = document.getElementById('previous');
         let nextButton = document.getElementById('next');
 
-        previousButton.addEventListener('click', display_previous())
-        nextButton.addEventListener('click', next())
 
-        
+        const images = ['img1', 'img2', 'img3' ]
+        let currentIndex = 1;
+
+        previousButton.addEventListener('click', previous)
+        nextButton.addEventListener('click', next)
+
+    
+
+        function delete_and_updateImage () {
+            let screen = document.getElementById('screen');
+
+            let previousImages = screen.querySelectorAll('img');
+            previousImages.forEach(img => screen.removeChild(img));
+
+            let img = document.createElement('img');
+            img.id = images[currentIndex];
+            img.src = `./img/${images[currentIndex]}.jpg`;
+            img.style.width= '640px';
+            img.style.height= '360px';
+            screen.appendChild(img);
+           
+        }
+
+        function next () {
+            if (currentIndex < images.length -1) {
+                currentIndex++;
+                delete_and_updateImage();
+                
+            }
+        }
+
+        function previous () {
+            if (currentIndex > 0) {
+                currentIndex--;
+                delete_and_updateImage();
+                
+            }
+        }
+
 
 
 
         let div1 = document.getElementById('first_div');
         let img1 = document.createElement('img');
-        img1.src ="./img/패티앤베지스.jpg"
+        img1.src ="./img/img1.jpg"
         img1.style.width = '160px';
         img1.style.height = '90px';
+        img1.style.ZIndex = '1';
+        div1.style.zIndex= '0';
         div1.appendChild(img1);
 
 
         let div2 = document.getElementById('second_div');
         let img2 = document.createElement('img');
-        img2.src ="./img/양키스버거.jpg"
+        img2.src ="./img/img2.jpg"
         img2.style.width = '160px';
         img2.style.height = '90px';
         div2.appendChild(img2);
@@ -108,17 +147,13 @@
 
         let div3 = document.getElementById('third_div');
         let img3 = document.createElement('img');
-        img3.src ="./img/bas.jpg"
+        img3.src ="./img/img3.jpg"
         img3.style.width = '160px';
         img3.style.height = '90px';
         div3.appendChild(img3);
 
 
-        function display_previous() {
-            let screen = document.getElementById('screen');
-
-
-        }
+        
 
 
 
@@ -134,16 +169,16 @@
             previousImages.forEach(img => screen.removeChild(img));
 
             let img1 = document.createElement('img');
-            img1.src ="./img/패티앤베지스.jpg"
+            img1.src ="./img/img1.jpg"
             img1.style.width = '640px';
             img1.style.height = '360px';
             
             img1.style.position = 'absolute';
-            img1.style.zIndex = '0';
+            img1.style.zIndex = '1';
             
             
             screen.appendChild(img1)
-            console.log("패티앤베지스버거띠용")
+            console.log("img1버거띠용")
         }
 
         function display_image2 () {
@@ -152,15 +187,15 @@
             previousImages.forEach(img => screen.removeChild(img));
 
             let img2 = document.createElement('img');
-            img2.src ="./img/양키스버거.jpg"
+            img2.src ="./img/img2.jpg"
             img2.style.width = '640px';
             img2.style.height = '360px';
 
             img2.style.position = 'absolute';
-            img2.style.zIndex = '0';
+            img2.style.zIndex = '1';
             
             screen.appendChild(img2)
-            console.log("양키스버거띠용")
+            console.log("img2띠용")
         }
 
         function display_image3 () {
@@ -169,12 +204,12 @@
             previousImages.forEach(img => screen.removeChild(img));
 
             let img3 = document.createElement('img');
-            img3.src ="./img/bas.jpg"
+            img3.src ="./img/img3.jpg"
             img3.style.width = '640px';
             img3.style.height = '360px';
 
             img3.style.position = 'absolute';
-            img3.style.zIndex = '0';
+            img3.style.zIndex = '1';
             
             screen.appendChild(img3)
             console.log("바스버거띠용")
