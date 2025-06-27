@@ -22,13 +22,26 @@
             z-index: 1000;
             width: 80px;
             height:60px;
-            background-color: rgba(196, 195, 195,0.5);
+            background-color: rgba(196, 195, 195,0.1);
             border-color: rgba(196, 195, 195,0);
             margin-top: 150px;
             cursor: pointer;
             font-size:xx-large;
-            color: rgba(150, 150, 150, 0.5);
+            color: rgba(150, 150, 150, 0.1);
             
+        }
+
+        #next:hover,
+        #previous:hover {
+            z-index: 1000;
+            width: 100px;
+            height:70px;
+            background-color: rgba(196, 195, 195,0.2);
+            border-color: rgba(196, 195, 195,0);
+            margin-top: 145px;
+            cursor: pointer;
+            font-size:xx-large;
+            color: rgba(150, 150, 150, 0.3);
         }
 
         
@@ -104,15 +117,22 @@
             img.src = `./img/${images[currentIndex]}.jpg`;
             img.style.width= '640px';
             img.style.height= '360px';
+            img.style.opacity=0;
+            img.style.transition="opacity 0.5s ease"
             screen.appendChild(img);
+
+            requestAnimationFrame(()=> {
+                img.style.opacity =1;
+            })
            
         }
 
         function next () {
             if (currentIndex < images.length -1) {
                 currentIndex++;
-                delete_and_updateImage();
                 
+                delete_and_updateImage();
+                console.log("다음으로")
             }
         }
 
