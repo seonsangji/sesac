@@ -20,4 +20,4 @@ print ("Hello, %s!! %s??"% (name1, name2))
 # 결론적으로 가장 많이 쓰는 건... f-스트링 표기법 (js ``표기법과 유사)
 
 print(f"Hello, {name}!!")
-print(f"Hello, {name1}!! {name2}!!")
+print(f"Hello, {name1}!! {name2}!!")w
