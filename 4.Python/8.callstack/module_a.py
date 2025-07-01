@@ -16,3 +16,12 @@ def test_1234():
 def deep_call_1():
     print("module_a의 deep_call_1 호출")
     raise RuntimeError("의도적으로 발생한 나의 예외;/")
+
+def call_test():
+    print("나(module_a) 실행됨")
+
+
+if __name__ == '_main_':
+    call_test()
+
+    # 파이썬이 나를 직접 호출했을 때 실행 되는 것 !! = 메인 함수

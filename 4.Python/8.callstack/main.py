@@ -8,5 +8,5 @@ def local_function_a():
     print("main으로부터 호출된 local_function_a 함수")
     ma.function_a1()
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     start_program()

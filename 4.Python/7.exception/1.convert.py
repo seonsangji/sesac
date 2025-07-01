@@ -20,6 +20,9 @@ def convert_to_int(num_str):
         print("숫자 변하ㅗㄴ에 실패하였습니다. 입력값: ", num_str)
         result = None
     return result
+
+
+
     
 # def double_number(num):
 #     return num * 2
