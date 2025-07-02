@@ -1,3 +1,4 @@
-from userclass import IdGenerator
+import random
 
-print(self.user_id)
+
+print(random.choice(["멍 멍 이", "고양이  "]).strip())

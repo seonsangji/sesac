@@ -1,7 +1,11 @@
 import random
+import uuid
 from datetime import datetime as dt
 
-
+class GenerateUserId:
+    
+    def generateUserID(self):
+        return str(uuid.uuid4())
 
 
 class GenerateUserName:
@@ -10,7 +14,7 @@ class GenerateUserName:
         self.names = self.load_data_from_file(file_path)
 
     def load_data_from_file(self, file_path):
-        with open(file_path, "r", encoding = "utf-8") as file:
+        with open(file_path, "r", encoding= "utf-8") as file:
             data = file.read().splitlines()
         return data
 
@@ -27,10 +31,12 @@ class GenerateUserGender:
 class GenerateUserBirthdateAndAge:
 
     def __init__(self):
-        self.year = random.randint(1950,2010)
+        self.year = self.generateUserBirthyear()
 
+    def generateUserBirthyear(self):
+        return random.randint(1950,2010)
+    
     def generateUserBirthdate(self) -> str :
-
         month = f"{random.randint(1,12):02d}"
         day = f"{random.randint(1,28):02d}"
         return (  str(self.year) + "-" + str(month) + "-" + str(day)  )
@@ -43,42 +49,56 @@ class GenerateUserBirthdateAndAge:
     # 뽑은 값 반환한다
 class GenerateUserAddress:
 
-    def __init__(self, file_path):
-        self.cities = self.load_file_from_data(file_path)
+    def __init__(self, file_path1, file_path2):
+        self.cities = self.load_file_from_data1(file_path1)
+        self.towns = self.load_file_from_data2(file_path2)
 
-    def load_file_from_data(self, file_path):
-        with open ("city.text", "r", encoding = "utf-8") as file:
-            data = file.read().splitlines()
-            return data
+    def load_file_from_data1(self, file_path1):
+        with open (file_path1, "r", encoding = "utf-8") as file:
+            data1 = file.read().splitlines()
+            return data1
+    
+    def load_file_from_data2(self, file_path2):
+        with open (file_path2, "r", encoding = "utf-8") as file:
+            data2 = file.read().splitlines()
+            return data2
+            
 
     def generateUserAddress(self):
-        self.address = (str(random.randint(1,99)) + " " + random.choice(self.cities))
+        self.address = (random.choice(self.cities) + " " + random.choice(self.towns)+ str(random.randint(1,99)) + random.choice(["로", "길"]) + " " + str(random.randint(1,99)))
         return self.address
     
 
 
 
-class GenerateUser:
+class GenerateUser():
 
     def __init__(self):
+        self.genId = GenerateUserId()
         self.genName = GenerateUserName("name.txt")
         self.genGender = GenerateUserGender()
-        self.genBirthdateAndAge = GenerateUserBirthdateAndAge()
-        self.genAddress = GenerateUserAddress("city.txt")
+        self.genAddress = GenerateUserAddress("city.txt","town.txt")
 
     def generateUser(self,count):
         
-        for _ in range(count):
-            user = []
-            user.append(self.genName.generateUserName())
-            user.append(self.genGender.generateUserGender())
-            user.append(self.genBirthdateAndAge.generateUserBirthdate())
-            user.append(self.genBirthdateAndAge.generateUserAge())
-            user.append(self.genAddress.generateUserAddress())
-            print(user)
+        users = []
+        for _ in range(count):           
+            genBirthdateAndAge = GenerateUserBirthdateAndAge()
+            id = self.genId.generateUserID()
+            name = self.genName.generateUserName()
+            gender = self.genGender.generateUserGender()
+            birthdate = genBirthdateAndAge.generateUserBirthdate()
+            age = genBirthdateAndAge.generateUserAge()
+            address = self.genAddress.generateUserAddress()
+            users.append((id, name, gender, birthdate, age,address))
+            
+        return users
+        
+# GenerateUser 상속받는 Display 클래스 만들기
 
-test = GenerateUser()
-test.generateUser(5)
+
+# test = GenerateUser()
+# print(test.generateUser(5))
 
 # 각각 클래스에서 객체 만들고
 # users리스트에 객체.메서드로 name, gener, ... 넣기
