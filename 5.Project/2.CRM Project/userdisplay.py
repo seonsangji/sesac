@@ -22,7 +22,7 @@ class DisplayData(GenerateUser):
 class PrintCSV:
 
     userNum = int(input("user수: "))
-    
+
 
     generateInputUser = DisplayData()
     # generateInputUser.printCSV(userNum)

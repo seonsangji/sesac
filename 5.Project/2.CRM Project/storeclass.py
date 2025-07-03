@@ -1,28 +1,27 @@
 import random
 import uuid
+from main import GenerateId
 
 
-class GenerateStoreId:
+class GenerateStoreId(GenerateId):
+    pass
 
-    def generateStoreId(self):
-        return str(uuid.uuid4())
 
-class GenerateStore:
 
-    def __init__(self,file_path1, file_path2):
-        self.types = self.load_file_from_data1()
-        self.regions = self.load_file_from_data2()
 
-    def load_file_from_data1(self,file_path1):
-        with open (file_path1, "r", encoding= "utf-8") as file:
-            data1 = file.read().splitlines()
-        return data1
-    
-    def load_file_from_data2(self, file_path2):
-        with open (file_path2, "r", encoding = "utf-8") as file:
-            data2 = file.read().splitlines()
-            return data2
-    
+
+from main import GenerateAddress
+
+
+class GenerateStoreAddress(GenerateAddress):
+    pass
+
+class GenerateStoreName(GenerateAddress):
+
+    def __init__(self, file_path1, file_path2):
+        self.types = self.load_file_from_data1(file_path1)
+        self.regions = self.load_file_from_data2(file_path2)
+
     def generateStoreType(self):
         return random.choice(self.types)
     
@@ -33,27 +32,71 @@ class GenerateStore:
         type = self.generateStoreType()
         region = self.generateStoreRegion()
         return f"{type} {region}{str(random.randint(1,9))}호점"
+
     
 
-class GenerateStoreAddress:
+# a=[]
+# b = GenerateStore("store.txt","region.txt")
+# c = GenerateStoreAddress("city.txt","town.txt")
+# a.append(b.generateStoreName())
+# print(a)
+# a.append(c.generateAddress())
+# print(a)
 
-    def __init__(self, file_path1, file_path2):
-        self.cities = self.load_file_from_data1(file_path1)
-        self.towns = self.load_file_from_data2(file_path2)
+# class GenerateStore:
 
-    def load_file_from_data1(self, file_path1):
-        with open (file_path1, "r", encoding = "utf-8") as file:
-            data1 = file.read().splitlines()
-            return data1
+#     def __init__(self,file_path1, file_path2):
+#         self.types = self.load_file_from_data1()
+#         self.regions = self.load_file_from_data2()
+
+#     def load_file_from_data1(self,file_path1):
+#         with open (file_path1, "r", encoding= "utf-8") as file:
+#             data1 = file.read().splitlines()
+#         return data1
     
-    def load_file_from_data2(self, file_path2):
-        with open (file_path2, "r", encoding = "utf-8") as file:
-            data2 = file.read().splitlines()
-            return data2
+#     def load_file_from_data2(self, file_path2):
+#         with open (file_path2, "r", encoding = "utf-8") as file:
+#             data2 = file.read().splitlines()
+#             return data2
+    
+#     def generateStoreType(self):
+#         return random.choice(self.types)
+    
+#     def generateStoreRegion(self):
+#         return random.choice(self.regions)
+    
+#     def generateStoreName(self):
+#         type = self.generateStoreType()
+#         region = self.generateStoreRegion()
+#         return f"{type} {region}{str(random.randint(1,9))}호점"
+    
+
+
+
+
+
+
+class GenerateStore():
+
+    def __init__(self):
+        self.genId = GenerateStoreId()
+        
+        self.genName = GenerateStoreName("type.txt", "region.txt")
+
+        self.genAddress = GenerateStoreAddress("city.txt","town.txt")
+
+    def generateStore(self,count):
+        
+        stores = []
+        for _ in range(count):           
+
+            id = self.genId.generateId()
+            name = self.genName.generateStoreName()
+            type = name.split()[0]
+            address = self.genAddress.generateAddress()
+            stores.append((id,name, type, address))
             
-
-    def generateStoreAddress(self):
-        self.address = (random.choice(self.cities) + " " + random.choice(self.towns)+ str(random.randint(1,99)) + random.choice(["로", "길"]) + " " + str(random.randint(1,99)))
-        return self.address
+        return stores
     
-    
+# a = GenerateStore()
+# print(a.generateStore(2))
