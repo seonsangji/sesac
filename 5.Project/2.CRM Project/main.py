@@ -25,4 +25,3 @@ class GenerateAddress:
         self.address = (random.choice(self.cities) + " " + random.choice(self.towns)+ str(random.randint(1,99)) + random.choice(["로", "길"]) + " " + str(random.randint(1,99)))
         return self.address
     
-    

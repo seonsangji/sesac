@@ -1,5 +1,5 @@
 import random
-import uuid
+
 from datetime import datetime as dt
 
 from main import GenerateId
@@ -102,8 +102,8 @@ class GenerateUser():
 # GenerateUser 상속받는 Display 클래스 만들기
 
 
-test = GenerateUser()
-print(test.generateUser(5))
+# test = GenerateUser()
+# print(test.generateUser(5))
 
 # 각각 클래스에서 객체 만들고
 # users리스트에 객체.메서드로 name, gener, ... 넣기
