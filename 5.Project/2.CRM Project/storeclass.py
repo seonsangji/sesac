@@ -1,14 +1,8 @@
 import random
-import uuid
 from common import GenerateId
-
 
 class GenerateStoreId(GenerateId):
     pass
-
-
-
-
 
 from common import GenerateAddress
 

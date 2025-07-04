@@ -31,5 +31,5 @@ class GenerateOrderItem():
         return orderItems
     
 # test = GenerateOrderItem()
-# print(test.generateOrderItem(5))
+# print(test.generateOrderItem(5)) -- 별도 파일
 

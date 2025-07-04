@@ -5,7 +5,6 @@ import random
 class GenerateItemId(GenerateId):
     pass
 
-
 class GenerateMenu:
 
     def generateMenu(self):
@@ -41,4 +40,4 @@ class GenerateItem():
         return items
 
 # a = GenerateItem()
-# print(a.generateItem(2))
+# print(a.generateItem(2))-- import 유의

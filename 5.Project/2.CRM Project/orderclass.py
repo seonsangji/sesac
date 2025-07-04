@@ -1,8 +1,6 @@
-
 import random
 
 from common import GenerateId, GenerateIdFromCSV
-
 
 class GenerateOrderID(GenerateId):
     pass
@@ -26,10 +24,6 @@ class GenerateOrderAt():
         return  str(hour) + ":" + str(min) + ":" + str(sec)  
         
     
-
-
-
-
 # a = GenerateOrderAt()
 # print(a.generateOrderDate())
 
