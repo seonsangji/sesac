@@ -1,13 +1,14 @@
-
 import csv
 
 def getInput():
-    getData = int(input("생성할 데이터 개수를 입력하세요 (숫자로):"))
+    getNum = int(input("생성할 데이터 개수를 입력하세요 (숫자로):"))
     getForm = input("아웃풋 형태를 입력하세요 (csv, console):").lower()
-    return getData, getForm
+    return getNum, getForm
 
 headers = {
-    "users" : ["Id", "Name", "Gender", "Birthdate", "Age", "Address"]
+    "users" : ["Id", "Name", "Gender", "Birthdate", "Age", "Address"],
+    "stores" : ["Id", "Name", "Type", "Address"],
+    "items" :   ["Id", "Name", "Type", "Price"]
 }
 
 
@@ -19,14 +20,16 @@ def outputCSV(file_path, header, data):
 
             # from userdisplay import generateCSV
             # data = generateCSV(getData)
-def output(file_path, header, data):
-    getData, getForm = getInput()
+def output(getNum, getForm, file_path, header, data):
+    
     if getForm == "csv":
-        data = generateCSV(getData)
+        data = generateCSV(getNum)
         outputCSV(file_path, header, data)
+
     elif getForm == "console":
         data = DisplayData()
-        data.printData(getData)
+        data.printData(getNum)
+
 
 
 while True:
@@ -35,53 +38,72 @@ while True:
     if dataType == "user" :
 
         from userdisplay import generateCSV, DisplayData
-        getData, getForm = getInput()
-        data = generateCSV(getData)
-        output("users.csv", headers["users"], data)
-        break
+        getNum, getForm = getInput()
+        data = generateCSV(getNum)
+        output(getNum, getForm,"users.csv", headers["users"], data)
 
+        break
     elif dataType == "store" :
-        from storedisplay import generateCSV
-        getData = int(input("생성할 데이터 개수를 입력하세요 (숫자로):"))
-        getForm = input("아웃풋 형태를 입력하세요 (csv, console):").lower()
 
-        if getForm == 'csv':
-            from storedisplay import generateCSV
-            data = generateCSV(getData)
+        from storedisplay import generateCSV, DisplayData
+        getNum, getForm = getInput()
+        data = generateCSV(getNum)
+        output(getNum, getForm,"stores.csv", headers["stores"], data)
 
-            with open ("stores.csv", "w", newline="", encoding="utf-8") as file:
-                csv_writer = csv.writer(file)
-                csv_writer.writerow(["Id", "Name", "Type", "Address"])
-                csv_writer.writerows(data)
-            
-        elif getForm == 'console':
-            from storedisplay import DisplayData
-            data = DisplayData()
-            data.printData(getData)
         break
-
     elif dataType == "item" :
-        from itemdisplay import generateCSV
-        getData = int(input("생성할 데이터 개수를 입력하세요 (숫자로):"))
-        getForm = input("아웃풋 형태를 입력하세요 (csv, console):").lower()
 
-        if getForm == 'csv':
-            from itemdisplay import generateCSV
-            data = generateCSV(getData)
+        from itemdisplay import generateCSV, DisplayData
+        getNum, getForm = getInput()
+        data = generateCSV(getNum)
+        output(getNum, getForm,"items.csv", headers["items"], data)
 
-            with open ("items.csv", "w", newline="", encoding="utf-8") as file:
-                csv_writer = csv.writer(file)
-                csv_writer.writerow(["Id", "Name", "Type", "Price"])
-                csv_writer.writerows(data)
-            
-        elif getForm == 'console':
-            from itemdisplay import DisplayData
-            data = DisplayData()
-            data.printData(getData)
         break
-    
     else : 
         print("데이터 유형이 존재하지 않습니다. 다시 시도하세요.")
+
+    # elif dataType == "store" :
+    #     from storedisplay import generateCSV
+    #     getData = int(input("생성할 데이터 개수를 입력하세요 (숫자로):"))
+    #     getForm = input("아웃풋 형태를 입력하세요 (csv, console):").lower()
+
+    #     if getForm == 'csv':
+    #         from storedisplay import generateCSV
+    #         data = generateCSV(getData)
+
+    #         with open ("stores.csv", "w", newline="", encoding="utf-8") as file:
+    #             csv_writer = csv.writer(file)
+    #             csv_writer.writerow(["Id", "Name", "Type", "Address"])
+    #             csv_writer.writerows(data)
+            
+    #     elif getForm == 'console':
+    #         from storedisplay import DisplayData
+    #         data = DisplayData()
+    #         data.printData(getData)
+    #     break
+
+    # elif dataType == "item" :
+    #     from itemdisplay import generateCSV
+    #     getData = int(input("생성할 데이터 개수를 입력하세요 (숫자로):"))
+    #     getForm = input("아웃풋 형태를 입력하세요 (csv, console):").lower()
+
+    #     if getForm == 'csv':
+    #         from itemdisplay import generateCSV
+    #         data = generateCSV(getData)
+
+    #         with open ("items.csv", "w", newline="", encoding="utf-8") as file:
+    #             csv_writer = csv.writer(file)
+    #             csv_writer.writerow(["Id", "Name", "Type", "Price"])
+    #             csv_writer.writerows(data)
+            
+    #     elif getForm == 'console':
+    #         from itemdisplay import DisplayData
+    #         data = DisplayData()
+    #         data.printData(getData)
+    #     break
+    
+    # else : 
+    #     print("데이터 유형이 존재하지 않습니다. 다시 시도하세요.")
 
 
 
