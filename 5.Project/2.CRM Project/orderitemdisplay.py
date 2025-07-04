@@ -21,10 +21,10 @@ if __name__ == "__main__":
     num = int(input("orderitem수:"))
     data = generateCSV(num)
 
-    with open("orderitems.csv", "w", newline="", encoding="utf-8") as file:
+    with open("output/orderitems.csv", "w", newline="", encoding="utf-8") as file:
 
         csv_writer = csv.writer(file)
         csv_writer.writerow(["Id", "OrderItem", "ItemId"])
         csv_writer.writerows(data)
 
-generateCSV(10)
+# generateCSV(10)

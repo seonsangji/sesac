@@ -1,27 +1,63 @@
-import random
-import uuid
+import csv
 
-class GenerateId:
+def getInput():
+    getNum = int(input("생성할 데이터 개수를 입력하세요 (숫자로):"))
+    getForm = input("아웃풋 형태를 입력하세요 (csv, console):").lower()
+    return getNum, getForm
 
-    def generateId(self):
-        return str(uuid.uuid4())
+headers = {
+    "users" : ["Id", "Name", "Gender", "Birthdate", "Age", "Address"],
+    "stores" : ["Id", "Name", "Type", "Address"],
+    "items" :   ["Id", "Name", "Type", "Price"]
+}
+
+
+def outputCSV(file_path, header, data):
+    with open (file_path, "w", newline="", encoding="utf-8") as file:
+        csv_writer = csv.writer(file)
+        csv_writer.writerow(header)
+        csv_writer.writerows(data)
+
+
+def output(getNum, getForm, file_path, header, data):
     
+    if getForm == "csv":
+        data = generateCSV(getNum)
+        outputCSV(file_path, header, data)
 
-class GenerateAddress:
-    def __init__(self, file_path1, file_path2):
-        self.cities = self.load_file_from_data1(file_path1)
-        self.towns = self.load_file_from_data2(file_path2)
+    elif getForm == "console":
+        data = DisplayData()
+        data.printData(getNum)
 
-    def load_file_from_data1(self, file_path1):
-        with open (file_path1, "r", encoding = "utf-8") as file:
-            data1 = file.read().splitlines()
-            return data1
-    
-    def load_file_from_data2(self, file_path2):
-        with open (file_path2, "r", encoding = "utf-8") as file:
-            data2 = file.read().splitlines()
-            return data2   
-    def generateAddress(self):
-        self.address = (random.choice(self.cities) + " " + random.choice(self.towns)+ str(random.randint(1,99)) + random.choice(["로", "길"]) + " " + str(random.randint(1,99)))
-        return self.address
-    
+
+
+while True:
+    dataType = input("데이터 유형을 입력하세요 (User, Store 또는 Item):").lower()
+
+    if dataType == "user" :
+
+        from userdisplay import generateCSV, DisplayData
+        getNum, getForm = getInput()
+        data = generateCSV(getNum)
+        output(getNum, getForm,"output/users.csv", headers["users"], data)
+
+        break
+    elif dataType == "store" :
+
+        from storedisplay import generateCSV, DisplayData
+        getNum, getForm = getInput()
+        data = generateCSV(getNum)
+        output(getNum, getForm,"output/stores.csv", headers["stores"], data)
+
+        break
+    elif dataType == "item" :
+
+        from itemdisplay import generateCSV, DisplayData
+        getNum, getForm = getInput()
+        data = generateCSV(getNum)
+        output(getNum, getForm,"output/items.csv", headers["items"], data)
+
+        break
+    else : 
+        print("데이터 유형이 존재하지 않습니다. 다시 시도하세요.")
+

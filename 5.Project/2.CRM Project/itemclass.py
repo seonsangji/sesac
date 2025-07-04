@@ -1,4 +1,4 @@
-from main import GenerateId
+from common import GenerateId
 import json
 import random
 
@@ -10,7 +10,7 @@ class GenerateMenu:
 
     def generateMenu(self):
 
-        with open("item.json", "r", encoding="utf-8") as file:
+        with open("data/item.json", "r", encoding="utf-8") as file:
             data = json.load(file)
             # print(data)
 

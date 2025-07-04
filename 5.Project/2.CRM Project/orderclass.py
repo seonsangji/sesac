@@ -1,7 +1,8 @@
-import csv
+
 import random
 
-from main import GenerateId
+from common import GenerateId, GenerateIdFromCSV
+
 
 class GenerateOrderID(GenerateId):
     pass
@@ -11,7 +12,7 @@ class GenerateOrderAt():
     def __init__(self):
         pass
 
-    def generateOrderDate(self) -> str :
+    def generateOrderDate(self):
         year = 2025
         month = f"{random.randint(1,7):02d}"
         day = f"{random.randint(1,28):02d}"
@@ -20,30 +21,12 @@ class GenerateOrderAt():
     
     def generateOrderTime(self):
         hour = f"{random.randint(10,22):02d}"
-        min = f"{random.randint(0,60):02d}"
-        sec = f"{random.randint(0,60):02d}"
+        min = f"{random.randint(0,59):02d}"
+        sec = f"{random.randint(0,59):02d}"
         return  str(hour) + ":" + str(min) + ":" + str(sec)  
         
     
-class GenerateIdFromCSV():
 
-    def __init__(self,file_path):
-        self.data = self.load_file_from_data(file_path)
-
-    def load_file_from_data(self, file_path):
-        with open (file_path, "r", encoding="utf-8") as file:
-            csv_reader = csv.reader(file)
-            next(csv_reader)
-            data = []
-            for row in csv_reader:
-                data.append(row[0])
-            return data
-        
-    def generateIdFromCSV(self):
-        id = random.choice(self.data)
-        return id
-            
-    # 헤더 건너뛸것
 
 
 
@@ -55,8 +38,8 @@ class GenerateOrder():
     def __init__(self):
         self.genId = GenerateOrderID()
         self.genOrderAt = GenerateOrderAt()
-        self.genStoreId = GenerateIdFromCSV("stores.csv")
-        self.genUserId = GenerateIdFromCSV("users.csv")
+        self.genStoreId = GenerateIdFromCSV("output/stores.csv")
+        self.genUserId = GenerateIdFromCSV("output/users.csv")
 
     def generateOrder(self,count):
 

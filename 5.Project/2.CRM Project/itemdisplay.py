@@ -1,6 +1,5 @@
 from itemclass import GenerateItem
-import sys
-import csv
+
 
 class DisplayData(GenerateItem):
 
@@ -11,7 +10,7 @@ class DisplayData(GenerateItem):
 
     def saveData(self,count):
         return self.generateItem(count)
-        
+            
 # a = DisplayData()
 # a.printData(5)
 
@@ -20,15 +19,7 @@ def generateCSV(count):
     getData = DisplayData()
     return getData.saveData(count)
             
-# if __name__ == "__main__": 
-#     num = int(input("item수:"))
-#     data = generateCSV(num)
 
-#     with open ("items.csv", "w", newline="", encoding="utf-8") as file:
-
-#         csv_writer = csv.writer(file)
-#         csv_writer.writerow(["Id", "Name", "Type", "Price"])
-#         csv_writer.writerows(data)
 
 
 

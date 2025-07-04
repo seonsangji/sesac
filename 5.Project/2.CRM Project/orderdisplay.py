@@ -1,5 +1,5 @@
 from orderclass import GenerateOrder
-import sys
+
 import csv
 
 class DisplayData(GenerateOrder):
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     num = int(input("order수:"))
     data = generateCSV(num)
 
-    with open("orders.csv", "w", newline="", encoding="utf-8") as file:
+    with open("output/orders.csv", "w", newline="", encoding="utf-8") as file:
 
         csv_writer = csv.writer(file)
         csv_writer.writerow(["Id", "OrderAt", "StoreId", "UserId"])

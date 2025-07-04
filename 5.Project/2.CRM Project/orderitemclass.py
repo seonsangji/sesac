@@ -1,8 +1,6 @@
-import csv
-import random
 
-from main import GenerateId
-from orderclass import GenerateIdFromCSV
+
+from common import GenerateId,GenerateIdFromCSV
 
 class GenerateOrderItemId(GenerateId):
     pass
@@ -17,8 +15,8 @@ class GenerateOrderItem():
 
     def __init__(self):
         self.genId = GenerateOrderItemId()
-        self.genOrderId = GenerateOrderId("orders.csv")
-        self.genItemId = GenerateItemId("items.csv")
+        self.genOrderId = GenerateOrderId("output/orders.csv")
+        self.genItemId = GenerateItemId("output/items.csv")
 
     def generateOrderItem(self,count):
 
@@ -32,6 +30,6 @@ class GenerateOrderItem():
 
         return orderItems
     
-test = GenerateOrderItem()
-print(test.generateOrderItem(5))
+# test = GenerateOrderItem()
+# print(test.generateOrderItem(5))
 

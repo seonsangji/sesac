@@ -14,7 +14,7 @@ while True:
             from userdisplay import generateCSV
             data = generateCSV(getData)
 
-            with open ("users.csv", "w", newline="", encoding="utf-8") as file:
+            with open ("output/users.csv", "w", newline="", encoding="utf-8") as file:
                 csv_writer = csv.writer(file)
                 csv_writer.writerow(["Id", "Name", "Gender", "Birthdate", "Age", "Address"])
                 csv_writer.writerows(data)
@@ -35,7 +35,7 @@ while True:
             from storedisplay import generateCSV
             data = generateCSV(getData)
 
-            with open ("stores.csv", "w", newline="", encoding="utf-8") as file:
+            with open ("output/stores.csv", "w", newline="", encoding="utf-8") as file:
                 csv_writer = csv.writer(file)
                 csv_writer.writerow(["Id", "Name", "Type", "Address"])
                 csv_writer.writerows(data)
@@ -55,7 +55,7 @@ while True:
             from itemdisplay import generateCSV
             data = generateCSV(getData)
 
-            with open ("items.csv", "w", newline="", encoding="utf-8") as file:
+            with open ("output/items.csv", "w", newline="", encoding="utf-8") as file:
                 csv_writer = csv.writer(file)
                 csv_writer.writerow(["Id", "Name", "Type", "Price"])
                 csv_writer.writerows(data)
