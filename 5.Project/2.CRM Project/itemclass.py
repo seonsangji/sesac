@@ -12,7 +12,6 @@ class GenerateMenu:
         with open("data/item.json", "r", encoding="utf-8") as file:
             data = json.load(file)
             # print(data)
-
             category = random.choice(list(data.keys()))
             menu = random.choice(list(data[category].keys()))
             price= data[category][menu]
@@ -27,16 +26,11 @@ class GenerateItem():
         self.genMenu = GenerateMenu()
 
     def generateItem(self,count):
-
-        items = []
-        
+        items = []        
         for _ in range(count):
-
             id = self.genId.generateId()
-            category, menu, price = self.genMenu.generateMenu()
-            
+            category, menu, price = self.genMenu.generateMenu()            
             items.append((id, menu, category, price))
-
         return items
 
 # a = GenerateItem()

@@ -32,23 +32,19 @@ class GenerateStoreName(GenerateAddress):
 class GenerateStore():
 
     def __init__(self):
-        self.genId = GenerateStoreId()
-        
+        self.genId = GenerateStoreId()        
         self.genName = GenerateStoreName("data/type.txt", "data/region.txt")
-
         self.genAddress = GenerateStoreAddress("data/city.txt","data/town.txt")
 
     def generateStore(self,count):
         
         stores = []
         for _ in range(count):           
-
             id = self.genId.generateId()
             name = self.genName.generateStoreName()
             type = name.split()[0]
             address = self.genAddress.generateAddress()
-            stores.append((id,name, type, address))
-            
+            stores.append((id,name, type, address))            
         return stores
     
 # a = GenerateStore()

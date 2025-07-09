@@ -43,7 +43,6 @@ class GenerateOrder():
             orderAt = f"{self.genOrderAt.generateOrderDate()} {self.genOrderAt.generateOrderTime()}"
             storeId = self.genStoreId.generateIdFromCSV()
             userId = self.genUserId.generateIdFromCSV()
-
             orders.append((id, orderAt, storeId, userId))
             
         return orders

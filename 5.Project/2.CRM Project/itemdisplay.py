@@ -19,8 +19,4 @@ def generateCSV(count):
     getData = DisplayData()
     return getData.saveData(count)
             
-
-
-
-
 # generateCSV(5)

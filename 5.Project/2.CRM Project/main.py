@@ -35,29 +35,26 @@ while True:
     dataType = input("데이터 유형을 입력하세요 (User, Store 또는 Item):").lower()
 
     if dataType == "user" :
-
         from userdisplay import generateCSV, DisplayData
         getNum, getForm = getInput()
         data = generateCSV(getNum)
         output(getNum, getForm,"output/users.csv", headers["users"], data)
-
         break
-    elif dataType == "store" :
 
+    elif dataType == "store" :
         from storedisplay import generateCSV, DisplayData
         getNum, getForm = getInput()
         data = generateCSV(getNum)
         output(getNum, getForm,"output/stores.csv", headers["stores"], data)
-
         break
-    elif dataType == "item" :
 
+    elif dataType == "item" :
         from itemdisplay import generateCSV, DisplayData
         getNum, getForm = getInput()
         data = generateCSV(getNum)
         output(getNum, getForm,"output/items.csv", headers["items"], data)
-
         break
+    
     else : 
         print("데이터 유형이 존재하지 않습니다. 다시 시도하세요.")
 

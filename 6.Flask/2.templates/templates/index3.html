@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>플라스크 템플릿 엔진</h1>
+    <p>평범한 HTML코드는 가라</p>
+    <p>JINJA2 Template - 새로운 언어 - 가 온다ㄸ!!</p>
+    <h2>사용자 목록</h2>
+    {% for user in users %}
+    <h3>{{ user["name"] }}</h3>
+    <ul>
+        <li>나이 : {{ user["age"] }}</li>
+        <li>번호 : {{ user["mobile"] }}</li>
+    </ul>
+    {% endfor %}
+</body>
+</html>

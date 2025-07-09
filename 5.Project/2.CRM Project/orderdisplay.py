@@ -22,9 +22,8 @@ if __name__ == "__main__":
     data = generateCSV(num)
 
     with open("output/orders.csv", "w", newline="", encoding="utf-8") as file:
-
         csv_writer = csv.writer(file)
         csv_writer.writerow(["Id", "OrderAt", "StoreId", "UserId"])
         csv_writer.writerows(data)
 
-generateCSV(10)
+# generateCSV(10)

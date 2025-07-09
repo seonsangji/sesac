@@ -51,7 +51,6 @@ class GenerateUserBirthdateAndAge:
 class GenerateUserAddress(GenerateAddress):
     pass
 
-
 class GenerateUser():
 
     def __init__(self):
@@ -71,8 +70,7 @@ class GenerateUser():
             birthdate = genBirthdateAndAge.generateUserBirthdate()
             age = genBirthdateAndAge.generateUserAge()
             address = self.genAddress.generateAddress()
-            users.append((id, name, gender, birthdate, age,address))
-            
+            users.append((id, name, gender, birthdate, age,address))           
         return users
         
 # GenerateUser 상속받는 Display 클래스 만들기

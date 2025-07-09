@@ -19,15 +19,12 @@ class GenerateOrderItem():
         self.genItemId = GenerateItemId("output/items.csv")
 
     def generateOrderItem(self,count):
-
         orderItems = []
         for _ in range(count):
             id = self.genId.generateId()
             orderId = self.genOrderId.generateIdFromCSV()
             itemId = self.genItemId.generateIdFromCSV()
-
             orderItems.append((id, orderId, itemId))
-
         return orderItems
     
 # test = GenerateOrderItem()
