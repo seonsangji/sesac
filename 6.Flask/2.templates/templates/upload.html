@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>파일 업로드</h1>
+    <form action = "/upload" method="POST" enctype="multipart/form-data">
+        <input type = "file" name = "file">
+        <button type = "submit">전송</button>
+    </form>
+
+    <h2>업로드된 파일 목록</h2>
+    <ul>
+        {% for file in files %}
+            <li> {{file}}</li>
+            <a href="/delete/{{file}}" onclick=
+            "return confirm('정말 삭제하겠습니까?')">[delete]</a>
+        {% endfor %}
+    </ul>
+</body>
+</html>

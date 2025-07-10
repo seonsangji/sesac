@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>external request</h1>
+    <input type="number" id="userID" placeholder="type userID">
+    <button id="load">search</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('load').addEventListener('click', () => {
+            const userID = document.getElementById('userID').value;
+            fetch(`http://jsonplaceholder.typicode.com/users/${userID}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("네트워크 오류일 수 있습니다");
+                    }
+                    return response.json()
+                })
+                .then(data => {
+                    document.getElementById('result').innerHTML = 
+                    "<p><strong>Name:</strong>" + data.name + "</p>" 
+                    + "<p><strong>PhoneNumber:</strong>" + data.phone + "</p>"
+                })
+                .catch(error => {
+                    document.getElementById('result').innerHTML = "정보를 가져올 수 없습니다."
+                })
+        })
+    </script>
+</body>
+</html>

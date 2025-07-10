@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>upload file</h1>
+    <a href = "/">go home</a>
+    
+
+    <form action="/admin" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">submit</button>
+    </form>
+    <h2>uploaded files</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>filename</th>
+                <th>keywords</th>
+                <th>add keywords</th>
+            </tr>
+        </thead>        
+    {% for file in files %}
+        <tr>
+            <td>{{file}}</td>
+            <td>{{keywords[file]}}</td>
+            <td>
+                <form action="/admin/keyword" method="POST">
+                    <input type="hidden" name="filename" value="{{ file }}">
+                    <input type="text" name="keyword" placeholder="키워드를 입력하세요">
+                    <button type="submit">add</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    
+</body>
+</html>
