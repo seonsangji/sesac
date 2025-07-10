@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pick Your Random Breed Dog</h1>
+
+    <h2>Choose a bread:</h2>
+    <select id="select" name="select">
+        <option id="default" value="default">find your favorite dog</option>
+    </select>
+    <button id="get" type="submit">fetch image</button>       
+    <div id="result"></div>
+
+    <script>
+
+    // data.message를 통해 품종 list 만들기
+    // list에 forEach 함수 쓰기
+    //         for Each 함수에서 option.value 등등 정해주기
+        fetch('https://dog.ceo/api/breeds/list/all')
+            .then(response => response.json())
+            .then((data) => {
+                console.log(JSON.stringify(data))
+                // const breeds = data.message
+                // console.log(Object.keys(breeds))
+                console.log(Object.keys(data.message))
+                const breeds = Object.keys(data.message)
+                const select = document.getElementById('select');
+
+                breeds.forEach(breed => {
+                    const option = document.createElement('option');
+                    option.id = breed;
+                    console.log(option.id)
+                    option.value = breed;
+                    option.textContent = breed;
+
+                    select.append(option);
+                    console.log("한 개체 끝낫다")
+
+                    // document.getElementById(option.id).addEventListener( 'click', () => {
+                    //     console.log("옵션클릭")
+                    // })
+                    
+                });
+            })
+
+
+        document.getElementById('get').addEventListener('click', () => {
+            select = document.getElementById('select')
+            if (select.value == "default") {
+                return;
+            } else { 
+                breedname = select.value
+                fetch(`https://dog.ceo/api/breed/${breedname}/images/random`)
+                    .then(response => response.json())
+                    .then((data) => {
+                        document.getElementById('result').innerHTML = "";
+                        const img = document.createElement('img');
+                        img.src = data.message
+                        return document.getElementById('result').append(img)
+                    })
+                }
+        })
+
+        
+        
+        
+
+
+
+
+        // document.getElementById('get').addEventListener('click', () => {
+        //     fetch('https://dog.ceo/api/breeds/image/random')
+        //         .then(response => response.json())
+        //         .then((data) => {
+        //             // data_string = JSON.stringify(data)
+        //             // document.getElementById("result").innerHTML = data.message
+
+        //             const img = document.createElement('img');
+        //                 img.src = data.message
+                    
+                    
+        //             return document.getElementById('result').appendChild(img)
+        //         })
+        //     })
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="load">request info GET </button>
+    <div id="result"></div>
+    <button id="create">request info CREATE </button>
+    <button id="delete">request info DELETE </button>
+    <button id="modify">request info MODIFY </button>
+    <script>
+
+        document.getElementById("delete").addEventListener("click", () => {
+            fetch('https://jsonplaceholder.typicode.com/posts/111', {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => document.getElementById('result').innerText = JSON.stringify(data))
+        });
+        
+        document.getElementById("modify").addEventListener("click", () => {
+            const updateData = {
+                id :1,
+                title: 'Duolingo',
+                body:'waiting',
+                userId: 1
+            }
+            fetch('https://jsonplaceholder.typicode.com/posts/111', {
+                method: 'PUT',
+                body: JSON.stringify(updateData),
+                headers:{ 'Content-Type': 'application/json; charset= UTF-8'}
+            })
+                .then(response => response.json())
+                .then(data => document.getElementById('result').innerText = JSON.stringify(data))
+        });
+
+        document.getElementById("create").addEventListener("click", () => {
+            const newData = {
+                title : "Salut, SESAC",
+                body : "SSAAAAALLLLLUUUuuuuuttT",
+                userId : 1
+            }
+
+            fetch('https://jsonplaceholder.typicode.com/posts/1', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset= UTF-8'
+                },
+                body: JSON.stringify(newData)
+            })
+                .then(response => response.json())
+                .then(data => document.getElementById('result').innerText = JSON.stringify(data))
+        });
+
+        document.getElementById("load").addEventListener("click", () => {
+            console.log('버튼 클릭')
+            fetch('https://jsonplaceholder.typicode.com/posts/1')
+                .then(response => response.json())
+                .then(data => document.getElementById('result').innerText = JSON.stringify(data))
+            console.log('fetch 후')
+        })
+    </script>
+</body>
+</html>
