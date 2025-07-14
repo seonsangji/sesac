@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>admin page</h1>
+    <h2>image upload</h2>
+    <form id = "formBtn" method= "POST" enctype="multipart/form-data">
+        <input id="input" type="file" placeholder="예: cal, fruit">
+        <button id="uploadBtn" type="submit">upload</button>
+    </form>
+
+    
+
+    <h3>image list</h3>
+    <table border = "1" id="table">
+        <tr>
+            <th>preview</th>
+            <th>filename</th>
+            <th>keyword</th>
+            <th>delete</th>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById('formBtn').addEventListener('submit', (event) => {
+            event.preventDefault();
+            console.log("업로드 버튼 눌렷어");
+            const inputFile = document.getElementById('input');
+            const file = inputFile.files[0];
+            console.log(file.name)
+
+            const formData = new FormData();
+            formData.append("file", file)
+
+            fetch('/upload',  {
+                method: 'POST',
+                body: formData
+            })
+                .then((response) => {
+                    const result = response.json()
+                }) 
+        
+            // const previewCell = row.insertCell();
+            // const img = document.getElementById("img");
+            // img.src = #;
+            // img.width = 200;
+            // previewCell.appendchild("img");
+
+            // const nameCell = row.insertCell();
+            // nameCell.textContent = file.name;
+
+            // const keywordCell = row.insertCell();
+            // keywordCell.textContent = 
+
+            
+        })
+    </script>
+
+
+</body>
+</html>
