@@ -1,9 +1,11 @@
 import sqlite3
 
-MY_DATABASE = 'example.db'
+MY_DATABASE = 'users.db'
 
 def connect_db():
     conn = sqlite3.connect(MY_DATABASE)
+    conn.row_factory = sqlite3.Row
+    #각각의 행이 tuple이 아닌 dict로 반환된다
     return conn
 
 def create_table():
@@ -19,6 +21,10 @@ def create_table():
 
     conn.commit()
     conn.close()
+
+
+
+
 
 def insert_user(name,age):
     conn = connect_db()
@@ -41,7 +47,7 @@ def get_users():
 
     conn.commit()
     conn.close()
-    return rows
+    return dict(rows)
 
 def get_user_by_name(name):
     conn = connect_db()
@@ -51,16 +57,32 @@ def get_user_by_name(name):
 
     conn.commit()
     conn.close()
-    return rows
+    return dict(rows)
 
+def get_user_by_id(id):
+    conn = connect_db()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM users WHERE id = ?", (id, ))
+    user = cur.fetchone()
+    conn.commit()
+    conn.close()
+    return dict(user)
 
 def update_user_age(name, new_age):
     conn = connect_db()
     cur = conn.cursor()
 
-
     cur.execute("UPDATE users SET age=? WHERE name=?", (new_age, name))
 
+    conn.commit()
+    conn.close()
+
+def update_user_by_id(id, new_name, new_age):
+    conn = connect_db()
+    cur = conn.cursor()
+
+    cur.execute("UPDATE users SET name=?,age=? WHERE name=?",(new_name, new_age, id))
+    
     conn.commit()
     conn.close()
     
@@ -83,43 +105,12 @@ def delete_user_by_age(age):
     conn.commit()
     conn.close()
 
+def delete_user_by_id(id):
+    conn = connect_db()
+    cur = conn.cursor()
 
-
-def main():
-
-    create_table()
-
-    insert_user('Sangji', 22)
-    insert_user('Pongjja', 20)
-    insert_user('Mom', 53)
-
-    print("데이터 목록:")
-
-    users = get_users()
-    for user in users:
-        print(user)
-
-    update_user_age('Pongjja', 21)
-
-    user = get_user_by_name('Pongjja')
-    print(user)
-
-    delete_user_by_name('Mom')
-    print("사용자 조회:")
-    user = get_user_by_name('Mom')
-    print(user)
-
-    print("데이터 목록:")
-    users = get_users()
-    for user in users:
-        print(user)
-
-    delete_user_by_age(22)
+    cur.execute("DELETE FROM users WHERE id=?", (id, ))
     
-    print("데이터 삭제 후:")
-    users = get_users()
-    for user in users:
-        print(user)
+    conn.commit()
+    conn.close()
 
-if __name__ =='__main__':
-    main()

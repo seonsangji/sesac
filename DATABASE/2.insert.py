@@ -1,21 +1,17 @@
 import sqlite3
 
-conn = sqlite3.connect('example.db')
+def insert_user(name,age):
 
-cur = conn.cursor()
+    conn = sqlite3.connect('example.db')
 
-cur.execute('''
-            INSERT INTO users(name,age) VALUES ('Sangji', 22)
-            ''')
-
-cur.execute('''
-            INSERT INTO users(name,age) VALUES (?,?)
-            ''', ('Pongjja', 20))
-#'?' 는 placeholder
-# prepared statement.... SQL injection 공격을 막는 패턴
+    cur = conn.cursor()
+  
+    cur.execute("INSERT INTO users ( name, age ) VALUES ( ? , ?)", (name, age))
 
 
-conn.commit()
+    conn.commit()
 
-conn.close()
+    conn.close()
+
+
 

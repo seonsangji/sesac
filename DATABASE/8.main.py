@@ -1,48 +1,50 @@
-from db_crud_sqlite import (
-    create_table, 
-    insert_user, 
-    get_users, 
-    update_user_age, 
-    get_user_by_name, 
-    delete_user_by_name, 
-    delete_user_by_age)
+import db_crud_sqlite as db
+
 
 
 def main():
 
-    create_table()
+    db.create_table()
 
-    insert_user('Sangji', 22)
-    insert_user('Pongjja', 20)
-    insert_user('Mom', 53)
+    db.insert_user('Sangji', 22)
+    db.insert_user('Rori', 18)
+    db.insert_user('Pongjja', 20)
 
-    print("데이터 목록:")
-
-    users = get_users()
-    for user in users:
+    data = db.get_users()
+    print("데이터 목록: ")
+    for user in data:
         print(user)
 
-    update_user_age('Pongjja', 21)
-
-    user = get_user_by_name('Pongjja')
-    print(user)
-
-    delete_user_by_name('Mom')
-    print("사용자 조회:")
-    user = get_user_by_name('Mom')
-    print(user)
-
-    print("데이터 목록:")
-    users = get_users()
-    for user in users:
+    print("--------")
+    db.update_user_by_id(10, 'Daeun', 22)
+    data = db.get_users()
+    print("수정 후 데이터 목록: ")
+    for user in data:
         print(user)
 
-    delete_user_by_age(22)
+    print("--------")
+    db.delete_user_by_id(10)
+
+    db.delete_user_by_age(40)
     
-    print("데이터 삭제 후:")
-    users = get_users()
-    for user in users:
-        print(user)
+    db.delete_user_by_name('Rori')
 
-if __name__ =='__main__':
+
+
+
+
+
+
+
+
+
+
+    print("사용자 삭제 후 데이터 목록: ")
+    data = db.get_users()
+    print("삭제 후 데이터 목록:")
+    for _ in data:
+        print(_)
+
+
+if __name__ == '__main__':
     main()
