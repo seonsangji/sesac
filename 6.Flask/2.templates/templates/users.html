@@ -6,20 +6,41 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>users</h1>
-    <h2>page {{page}}</h2>
-    <ul>
-        {% for user in users %}
-            <li>user {{user.id}}&nbsp;&nbsp;&nbsp;{{user.age}}세     번호: ({{user.phone}})</li><br>
-        {% endfor %}
+    <h2>현재 페이지 {{page}}</h2>
 
-        {% if page %}
-        <div>
-            <a href = "/pages/{{ page -1}}"> Previous </a>
-            <a href = "/pages/{{ page +1}}"> Next </a>
-        </div>
+    {% if page %}
+    <div>
+        {% if page > 1 %}
+            <a href="/pages/{{ page - 1 }}">Previous</a> |
+        {% else %}
+            Previous |
         {% endif %}
-    </ul>
-    
+
+        <!-- jinja2 템플릿 문법에서 변수뒤에 "|"" 로 부가 기능 수행이 가능함. 그 중 하나가 해당 변수의 길이를 가져오는 기능인 "| length" -->
+        {% if users|length == 10 %}
+            <a href="/pages/{{ page + 1 }}">Next</a>
+        {% else %}
+            Next
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>phone</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.phone}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </body>
 </html>

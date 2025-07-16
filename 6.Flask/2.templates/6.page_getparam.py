@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # 더미 유저 100명 생성
 users = [
-    { 'id': i, 'name': f'User{i}', 'age': 20 + i %10, 'phone': f'010-0000-{str(i).zfill(4)}'} for i in range (1, 101)
+    { 'id': i, 'name': f'User{i}', 'age': 20 + i % 10, 'phone': f'010-0000-{str(i).zfill(4)}' } for i in range(1, 101)
 ]
 
 # http://localhost:5000/?pages=1

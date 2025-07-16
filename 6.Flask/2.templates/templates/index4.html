@@ -9,26 +9,20 @@
     <h1>플라스크 템플릿 엔진</h1>
     <p>평범한 HTML코드는 가라</p>
     <p>JINJA2 Template - 새로운 언어 - 가 온다ㄸ!!</p>
-    <h2>사용자 검색</h2>
-    <form>
-        <input type = "text" name = "name" placeholder = "이름을 입력하세요">
-        <input type = "submit" value = "검색">
-    </form>
     
-    <h2>사용자 목록</h2>
-    <table border = "1">
+    <table>
         <tr>
-            <th>이름</th>
-            <th>나이</th>
-            <th>번호</th>
+            <th>name</th>
+            <th>age</th>
+            <th>mobile</th>
         </tr>
-    {% for user in users %}
+        {% for u in users %}
         <tr>
-            <td>{{ user["name"] }}</td>
-            <td>{{ user["age"] }}</td>
-            <td>{{ user["mobile"] }}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.agee}}</td>
+            <td>{{u.mobile}}</td>
         </tr>
-    {% endfor %}
+        {% endfor %}
     </table>
 
 </body>

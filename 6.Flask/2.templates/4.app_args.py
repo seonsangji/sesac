@@ -1,24 +1,28 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-users_dic = [
-{'name': 'Alice', 'age': 25, 'mobile': '050-1234-5678'},
-{'name': 'Bob', 'age': 30, 'mobile': '050-2222-5678'},
-{'name': 'Charlie', 'age': 35, 'mobile': '050-3333-5678'}
+users = [
+    {'name': 'Alice', 'age': 25, 'mobile': '050-1234-5678'},
+    {'name': 'Bob', 'age': 30, 'mobile': '050-2222-5678'},
+    {'name': 'Charlie', 'age': 35, 'mobile': '050-3333-5678'},
 ]
 
-# get 파라미터 요청도 같이 온다
 @app.route('/')
 def home():
     name = request.args.get('name')
-    print("이름:",name)
-    filtered_users = users_dic
+    
+    # filtered_users = users
 
-    if name:
-        filtered_users = [u for u in users_dic if u['name'].lower() == name.lower()]
+    # for u in users:
+    #     if name.lower() == u['name'].lower():
+    #         filtered_users = [u]
+    #         break
+    filtered_users = users
+    
+    if name :
+        filtered_users = [u for u in users if u['name'].lower() == name.lower()]
 
-    print(filtered_users)
     return render_template('index4.html', users = filtered_users)
 
 if __name__ == '__main__':
