@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-4">
+        <div class="alert alert-warning align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                THE HUUUUGGGE WARNING
+        </div>
+        <div class="alert alert-info align-items-center" role="alert">
+            <i class="bi bi-info-circle-fill me-2"></i>
+                CHECK THIS OUT
+        </div>
+        <div class="alert alert-danger align-items-center" role="alert">
+            <i class="bi bi-x-circle-fill me-2"></i>
+                YOU HAVE A SERIOUS ERROR
+        </div>
+        <div class="alert alert-primary align-items-center" role="alert">
+            FOR MORE INFO: <a href="#" class="alert-link">click me</a>   
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="alert alert-success alert-dismissilbe fade show" role="alert" id="hand-close-alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert">btn</button>
+            YOU CAN CLOSE ME, IF YOU REALLY WANT...
+        </div>
+
+        <div class="alert alert-success alert-dismissilbe fade show" role="alert" id="auto-close-alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert">btn</button>
+            I WILL DISAPPEAR IN 5 SECS, 5 4...
+        </div>
+    </div>
+
+    <script>
+        setTimeout( () => {
+            const alert = document.getElementById('auto-close-alert');
+            if (alert) {
+                alert.classList.remove('show');
+            }
+        }, 5000);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <h2>헤딩 사이즈2</h2>
+    <!-- "m - *":  margin시리즈 -->
+    <h2 class="mt-10">Feel Size : H2</h2>
+    <h2 class="my-10">Feel Size : H2</h2>
+
+    <section class="mb-5">
+        <h3>d-*  클래스</h3>
+        <!-- 1. Display 클래스 "d-*" -->
+         <div class="d-block bg-warning p-10">d-block 블럭요소</div>
+         <br>
+         <div class="d-inline bg-light p-2 border">d-inline 인라인요소</div>
+    </section>
+    
+    <section class="mb-5">
+        <h3>visible/invisible 클래스</h3>
+         <div class="bg-success text-white">always visible</div>
+         <div class="bg-secondary p-2 mb-2 invisible">invisible(공간은 차지)</div>
+         <div class="bg-success text-white">invisible 아래에 visible</div>
+    </section>
+    
+    <section class="mb-5">
+        <h3>d-* 및 d-none</h3>
+         <div class="d-none">d-none이라 보이지 않는다</div>
+         <div class="d-sm-block d-md-none bg-primary">작은 화면에서 보인다</div>
+         <div class="d-sm-none d-md-block bg-info">큰 화면에서 보인다</div>
+    </section>
+
+    <section class="mb-5">
+        <h3>그리드 레이아웃</h3>
+         <div class="d-grid gap-2" style="grid-template-columns: repeat(3, 1fr)">
+            <div class="bg-success text-white">grid1</div>
+            <div class="bg-success text-white">grid2</div>
+            <div class="bg-success text-white">grid3</div>
+        </div>
+         
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
