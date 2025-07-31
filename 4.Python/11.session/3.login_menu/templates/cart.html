@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    product
+{% endblock %}
+
+{% block content %}
+    <h1>THAT ICECREAM</h1>
+    <ul>
+        {% for item in cart %}
+        <li>
+            {{ item.name }} - {{ item.price }} - 수량:{{ item.qty }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

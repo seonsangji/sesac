@@ -19,7 +19,7 @@ def home():
     #         filtered_users = [u]
     #         break
     filtered_users = users
-    
+     
     if name :
         filtered_users = [u for u in users if u['name'].lower() == name.lower()]
 

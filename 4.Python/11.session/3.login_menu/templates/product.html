@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    product
+{% endblock %}
+
+{% block content %}
+    <h1>THAT ICECREAM</h1>
+    <ul>
+        {% for item in items %}
+        <li>
+            {{item.name}}
+            {{item.price}} 원
+            <form action="{{ url_for('add_to_cart')}}" method = post>
+                <input type="hidden" name="item_json"
+                value='{{ item | tojson }}'>
+                <button type="submit">Add</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/cart">MyCart</a>
+
+{% endblock %}

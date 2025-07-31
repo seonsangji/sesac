@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}profile{% endblock %}
+
+{% block content %}
+    <h1>당신의 정보</h1>
+    <p>name: {{ user.name }}</p>
+    <p>id: {{ user.id }}</p>
+    <p>password: {{ user.password }}</p>
+
+    <h2>개명을 원하십니까</h2>
+    <form action="{{url_for('change_profile')}}" method="post">
+        <label for="name">이름 수정:</label>
+        <input type="text" name="name" value="{{ user.name }}">
+        <br>
+        <label for="id">아이디 수정:</label>
+        <input type="text" name="id" value="{{ user.id }}">
+        <br>
+        <label for="password">비밀번호 수정:</label>
+        <input type="password" name="password">
+        <button type="submit">개명</button>
+    </form>
+{% endblock %}
