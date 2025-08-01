@@ -24,7 +24,7 @@ def login():
         flash("ID 또는 PW 가 일치하지 않습니다","danger")
         return redirect(url_for('home'))
     if 'user' in session:
-        flash("이미 로그인 된 사용자입니다.", "warning")
+        flash("이미 로그인 된 사용자입니다", "warning")
         return redirect(url_for('user'))
     return redirect(url_for('home'))
 
@@ -32,7 +32,6 @@ def login():
 def user():
     if 'user' in session:
         user = session.get('user')
-        flash("이미 로그인 된 사용자입니다", "warning")
         return render_template('dashboard.html', name=user['name'])
     
     flash("로그인부터 하세요 ㅡㅡ")
