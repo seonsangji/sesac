@@ -8,40 +8,95 @@ MY_DATABASE = 'prac.db'
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sesac'
 
-def get_users(username, password):
+def get_users(userid, password):
+    conn = sqlite3.connect(MY_DATABASE)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    cur.execute('''
+        SELECT * FROM prac WHERE userid=? ''', (userid, ))
+    user = cur.fetchone()
+    conn.close()
+
+    if user:
+        hashed_pw = user['password']
+        if bcrypt.checkpw(password.encode(), hashed_pw):
+            return {
+                'name': user['name'],
+                'userid': user['userid'],
+                'password': user['password']
+                }
+    return None
+
+
+def create_user(name, userid, password):
     hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
-    cur.execute('''
-        SELECT * FROM users WHERE username=? AND password=?''', (username, hashed_pw))
-    user = cur.fetchone()
+    cur.execute("INSERT INTO prac (name, userid, password) VALUES (?,?,?)", (name, userid, hashed_pw))
+    conn.commit()
     conn.close()
-    return user
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        username = request.form.get('username')
+        userid = request.form.get('userid')
         password = request.form.get('password')
-        user = get_users(username, password)
+        user = get_users(userid, password)
         if user:
-            session['user'] = {'username':username, 'password':password}
+            session['user'] = user
             flash("로그인 성공했습니다", 'success')
             return redirect(url_for('user'))
-        else:
-            flash("로그인 실패했습니다", 'danger')
-            return redirect(url_for('index'))
+    flash("로그인 실패했습니다", 'danger')
     return redirect(url_for('index'))
+
 
 @app.route('/user')
 def user():
     user = session.get('user')
-    return render_template('user.html', name=user['name'])
+    return render_template('user.html', user=user)
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+
+@app.route('/register', methods=['POST'])
+def register():
+    name = request.form.get('name')
+    userid = request.form.get('userid')
+    password = request.form.get('pw')
+    confirm_password = request.form.get('confirm_pw') 
+
+    if password == confirm_password:
+        create_user(name=name, userid=userid, password=password)
+        user = get_users(userid, password)
+        print(user)
+        session['user'] = user
+        flash("회원가입 성공", "success")
+        return redirect(url_for('user'))
+
+    flash("회원가입 실패", "warning")
+    return redirect(url_for('register_page'))
+
+
+@app.route('/register', methods = ['GET'])
+def register_page():
+    return render_template('register.html')
+
+    
+    
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
