@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>회원가입 (일단 이메일 검증)</h2>
+    <div>
+        <form action="{{url_for('send_code')}}" method="post">
+            <label for="email">이메일:</label>
+            <input type="email" name="email" id="email" 
+            {% if email %} value="{{ email }}" {% endif %}>
+            <button type="submit">인증코드 전송</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="{{url_for('verify_code')}}" method="post">
+            <label for="code">인증코드:</label>
+            <input type="text" name="code" id="code">
+            <button type="submit">인증코드 확인</button>
+        </form>
+    </div>
+
+    <p id="result">
+        <!-- 결과 나오는 곳 -->
+    </p>
+
+    <script>
+        // 미션1. email 주소 가져다가 서버로 보내기 (/send_code)
+        // result 에 "메일 전송 성공 / 실패 여부 - 서버에서 받아와 - 출력"
+        // 미션2. code 가져다가 서버로 보내기 (/verify_code)
+        // result 에 "검증 코드 맞음 / 틀림 여부 - 서버에서 받아와 -출력"
+    </script>
+</body>
+</html>

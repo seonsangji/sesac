@@ -8,7 +8,7 @@ MY_DATABASE = 'prac.db'
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sesac'
 
-def get_users(userid, password):
+def get_user_by_id(userid):
     conn = sqlite3.connect(MY_DATABASE)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
@@ -16,6 +16,12 @@ def get_users(userid, password):
         SELECT * FROM prac WHERE userid=? ''', (userid, ))
     user = cur.fetchone()
     conn.close()
+    print(user)
+    return dict(user)
+
+def get_users(userid, password):
+    
+    user = get_user_by_id(userid)
 
     if user:
         hashed_pw = user['password']
@@ -75,6 +81,10 @@ def register():
     password = request.form.get('pw')
     confirm_password = request.form.get('confirm_pw') 
 
+    if userid:
+        existing_userid = get_user_by_id(userid)
+        if existing_userid:
+            flash("이미 사용 중인 id 입니다", "warning")
     if password == confirm_password:
         create_user(name=name, userid=userid, password=password)
         user = get_users(userid, password)

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>회원가입 (일단 이메일 검증)</h2>
+    <div>
+        <form action="{{url_for('send_code')}}" method="post">
+            <label for="email">이메일:</label>
+            <input type="email" name="email" id="email" 
+            {% if email %} value="{{ email }}" {% endif %}>
+            <button type="submit">인증코드 전송</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="{{url_for('verify_code')}}" method="post">
+            <label for="code">인증코드:</label>
+            <input type="text" name="code" id="code">
+            <button type="submit">인증코드 확인</button>
+        </form>
+    </div>
+
+    <p id="result">
+        <!-- 결과 나오는 곳 -->
+    </p>
+
+    <script>
+        function sendCode() {
+            const email = document.getElementById('email').value;
+            fetch('/send-code', {
+                method: 'POST', 
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({email})
+            })
+                .then(response => responsejson())
+                .then(data => {
+                    document.getElementById('result').innerText = data.message || data.error;
+                })
+        }
+
+        async function verifyCode() {
+            const code = document.getElementById('code').value;
+            const response = await fetch('/verify-code', {
+                method: "post",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({code})
+
+            })
+            const data = await response.json();
+            document.getElementById('result').innerTExt = data.message || data.error
+        }
+    </script>
+</body>
+</html>

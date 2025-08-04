@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sesac</title>
+</head>
+<body>
+    {% if user %}
+        <h2>환영합니다, {{user['nickname']}}님!</h2>
+            {% if user.profile_image %}
+                <img src="{{ user.profile_image }}" alt="사용자이미지" width="100">
+            {% else %}
+                <img src="#" alt="부트스트랩 이미지" width="100">
+            {% endif %}
+        <a href="{{url_for('logout')}}">logout</a>
+    {% else %}
+        <a href="{{url_for('login')}}">
+            <img src="{{url_for('static', filename='btnG_short.png')}}">
+        </a>
+    {% endif %}
+</body>
+</html>

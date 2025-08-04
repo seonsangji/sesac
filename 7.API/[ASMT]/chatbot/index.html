@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>OpenAI</h2>
+    <label for="question">질문하기:</label>
+    <input type="text" id="question" placeholder="무엇이든 물어보세요">
+    <button id="button">질문하기</button>
+
+    <div id="result">
+        <!-- 답변 나오는 곳 -->
+    </div>
+
+    <script>
+        document.getElementById('button').addEventListener('click', ()=> {            
+            fetch('/ask-chatgpt',{
+                method : 'POST',
+                headers : {
+                    'Content-Type': 'application/json'
+                },
+                body : JSON.stringify({ question })
+            })
+            .then()
+        })
+
+
+
+        
+
+    </script>
+</body>
+</html>
