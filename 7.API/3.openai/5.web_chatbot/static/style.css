@@ -1,0 +1,46 @@
+.message {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 15px;
+}
+
+.user {
+    background-color: skyblue;
+    text-align: right;
+}
+
+.chatbot {
+    background:pink;
+    text-align: left;
+    
+}
+
+.loading-dots {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: grey;
+    animation: dots 3s infinite;
+    margin-right: 5px
+}
+
+@keyframes dots {
+    0%, 10% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#loading-indicator {
+    display: none;
+    margin-bottom: 10px;
+}

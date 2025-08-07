@@ -16,6 +16,8 @@
     </div>
 
     <script>
+        const question = document.getElementById('question').value;
+
         document.getElementById('button').addEventListener('click', ()=> {            
             fetch('/ask-chatgpt',{
                 method : 'POST',
@@ -24,7 +26,13 @@
                 },
                 body : JSON.stringify({ question })
             })
-            .then()
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').innerText = data;
+            })
+            .catch(error => {
+                document.getElementById('result').innerText = '오류: ' + error;
+            })
         })
 
 
